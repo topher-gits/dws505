@@ -3,9 +3,12 @@
 Weekly allocation of 8 armories across 5 alliances, drawn at random but
 identically for everyone who opens the link.
 
-**Live page:** `armory.html` — one self-contained file, no build step, no
-dependencies, no backend. Host it anywhere static (GitHub Pages, Netlify,
-Cloudflare Pages) or open it directly.
+**Live at <https://dws505.com/armory>** — that is the link to share with all
+five alliances; everyone who opens it sees the same draw. A specific week has
+its own link, e.g. <https://dws505.com/armory#2026-W34>.
+
+`armory.html` is the whole page: one self-contained file, no build step, no
+dependencies, no backend.
 
 ## How the draw works
 
