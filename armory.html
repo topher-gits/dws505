@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>505 Armory Draw</title>
+<style>
+:root{
+  --bg:#0a0c0f;
+  --panel:#12161b;
+  --steel-hi:#5b636d;
+  --steel:#3a4048;
+  --steel-lo:#1d2126;
+  --brass:#d4a836;
+  --brass-lo:#8a6d18;
+  --felt:#0e2f24;
+  --felt-lo:#061510;
+  --neon:#ffb733;
+  --ink:#e9e6df;
+  --ink-dim:#8f9299;
+  --line:#272c33;
+  --padtop:clamp(14px,3vw,32px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:
+    radial-gradient(120% 80% at 50% -10%, #1a2028 0%, transparent 60%),
+    radial-gradient(100% 60% at 50% 110%, #131a16 0%, transparent 55%),
+    var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  min-height:100%;
+  padding:var(--padtop) clamp(12px,3vw,28px) 64px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto}
+
+/* ---------- header ---------- */
+header{text-align:center;margin-bottom:clamp(18px,3vw,30px)}
+.sign{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:clamp(26px,7vw,54px);
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--neon);
+  text-shadow:0 0 6px rgba(255,183,51,.55),0 0 22px rgba(255,140,20,.35),0 0 48px rgba(255,120,0,.2);
+}
+
+/* Week nav is flat on purpose: rarely used, but findable. */
+.weeknav{
+  margin:clamp(12px,2.2vw,18px) auto 0;
+  display:flex;align-items:center;justify-content:center;gap:4px;
+}
+.chev{
+  background:none;border:0;color:#565b63;cursor:pointer;
+  width:30px;height:30px;border-radius:6px;flex:none;
+  display:grid;place-items:center;transition:color .15s,background .15s;
+}
+.chev:hover{color:var(--ink);background:rgba(255,255,255,.07)}
+.chev svg{width:15px;height:15px}
+.weekmeta{line-height:1.3;min-width:190px}
+.weekkey{
+  font-family:ui-monospace,Menlo,monospace;font-size:14px;
+  letter-spacing:.09em;color:#a9aeb6;
+}
+.weekdates{display:block;font-size:10px;color:#5d626a;letter-spacing:.05em;margin-top:1px}
+.badge{
+  display:inline-block;margin-left:8px;font-size:9px;letter-spacing:.14em;
+  text-transform:uppercase;padding:2px 6px;border-radius:4px;vertical-align:2px;
+  border:1px solid var(--brass-lo);color:var(--brass);
+}
+.badge.hide{display:none}
+
+/* ---------- vault grid ---------- */
+.vault{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(10px,2vw,18px);
+  margin:0 0 clamp(16px,3vw,24px);
+}
+@media(min-width:760px){ .vault{grid-template-columns:repeat(4,1fr)} }
+
+.cell{
+  position:relative;
+  aspect-ratio:3/3.4;
+  perspective:1100px;
+  border-radius:10px;
+}
+@media(min-width:760px){ .cell{aspect-ratio:3/2.92} }
+.chamber{
+  position:absolute;inset:0;border-radius:10px;overflow:hidden;
+  background:
+    radial-gradient(78% 60% at 50% 30%, rgba(120,255,200,.16) 0%, transparent 62%),
+    linear-gradient(180deg,var(--felt) 0%,var(--felt-lo) 100%);
+  border:1px solid #0a1c16;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:inset 0 0 44px rgba(0,0,0,.75);
+}
+.chamber::after{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px);
+  pointer-events:none;
+}
+.tag{
+  font-family:ui-monospace,Menlo,monospace;
+  font-weight:700;
+  font-size:clamp(26px,7.2vw,46px);
+  letter-spacing:.02em;
+  color:var(--brass);
+  text-shadow:0 0 12px rgba(212,168,54,.45),0 2px 0 rgba(0,0,0,.6);
+  line-height:1;
+  opacity:0;transform:scale(.82);
+}
+.cell.open .tag{opacity:1;transform:scale(1);transition:opacity .45s ease .25s,transform .5s cubic-bezier(.2,1.5,.4,1) .25s}
+.plate{
+  margin-top:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:#8fbfa9;border-top:1px solid rgba(143,191,169,.28);padding-top:7px;
+  opacity:0;
+}
+.cell.open .plate{opacity:1;transition:opacity .4s ease .4s}
+
+.door{
+  position:absolute;inset:0;border-radius:10px;
+  transform-origin:left center;
+  transform:rotateY(0deg);
+  transition:transform 1.15s cubic-bezier(.55,.02,.3,1), box-shadow 1.15s ease;
+  background:
+    linear-gradient(135deg,var(--steel-hi) 0%,var(--steel) 26%,var(--steel-lo) 60%,var(--steel) 100%);
+  border:1px solid #565d67;
+  box-shadow:0 10px 26px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.14);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  overflow:hidden;
+}
+.door::before{ /* brushed sheen */
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(112deg,rgba(255,255,255,.045) 0 1px,transparent 1px 4px);
+}
+.door::after{ /* rivets */
+  content:"";position:absolute;inset:9px;border-radius:7px;
+  border:1px solid rgba(0,0,0,.35);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    6px 6px 0 -4px #6b7480, calc(100% - 6px) 6px 0 -4px #6b7480;
+}
+.cell.open .door{
+  transform:rotateY(-87deg);
+  box-shadow:18px 12px 34px rgba(0,0,0,.7);
+}
+.cell.open{z-index:0}
+.cell{z-index:1}
+.stencil{
+  position:relative;z-index:2;
+  font-family:ui-monospace,Menlo,monospace;font-weight:700;
+  font-size:clamp(30px,8vw,52px);
+  color:#aab2bd;
+  text-shadow:0 1px 0 rgba(255,255,255,.14),0 -1px 0 rgba(0,0,0,.5);
+  line-height:1;
+}
+.stencil-lab{
+  position:relative;z-index:2;
+  font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#79818d;
+}
+.dial{
+  position:relative;z-index:2;
+  width:clamp(34px,10vw,52px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#e8c76a 0%,var(--brass) 38%,var(--brass-lo) 72%,#5c480f 100%);
+  box-shadow:0 2px 6px rgba(0,0,0,.55),inset 0 0 0 2px rgba(0,0,0,.25);
+}
+.dial::before,.dial::after{
+  content:"";position:absolute;inset:0;margin:auto;background:#3d3007;border-radius:2px;
+}
+.dial::before{width:78%;height:3px}
+.dial::after{width:3px;height:78%}
+.cell.spinning .dial{animation:spin 1.1s cubic-bezier(.3,0,.2,1)}
+@keyframes spin{to{transform:rotate(540deg)}}
+
+/* ---------- controls ---------- */
+.controls{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;
+  margin:0 0 clamp(14px,2.2vw,20px);
+}
+button.act{
+  font-family:ui-monospace,Menlo,monospace;
+  letter-spacing:.16em;text-transform:uppercase;font-size:12px;
+  padding:13px 22px;border-radius:9px;cursor:pointer;
+  background:linear-gradient(180deg,#2a3138,#171c21);
+  color:var(--ink);border:1px solid #3d454f;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+}
+button.act:hover{background:linear-gradient(180deg,#333b44,#1d232a);border-color:#4d5761}
+button.act.primary{
+  background:linear-gradient(180deg,#e0b544,var(--brass-lo));
+  color:#221a02;border-color:#f0cd6b;font-weight:700;
+  box-shadow:0 0 20px rgba(212,168,54,.3),inset 0 1px 0 rgba(255,255,255,.4);
+}
+button.act.primary:hover{background:linear-gradient(180deg,#f0c854,#9c7c1c)}
+button.act[hidden]{display:none}
+button.act:disabled{opacity:.4;cursor:default}
+/* Copy is the expected next action once the vault is open, so it carries a
+   label and a brass outline. Replay and sound stay quiet beside it. */
+.copybtn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 20px;min-height:44px;border-radius:9px;cursor:pointer;
+  font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(212,168,54,.09);
+  color:var(--brass);border:1px solid rgba(212,168,54,.45);
+  transition:background .15s,border-color .15s,color .15s;
+}
+.copybtn:hover{background:rgba(212,168,54,.19);border-color:var(--brass);color:#f0cd6b}
+.copybtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.copybtn .ico{display:grid;place-items:center}
+.copybtn svg{width:17px;height:17px}
+.copybtn.ok{color:#63d19b;border-color:rgba(99,209,155,.5);background:rgba(99,209,155,.11)}
+.copybtn.fail{color:#ff9b9b;border-color:rgba(255,120,120,.5);background:rgba(255,90,90,.1)}
+.copybtn[hidden]{display:none}
+
+/* Utility actions: quiet by default, legible on hover. */
+.ghost{
+  background:none;border:0;color:#585d65;cursor:pointer;
+  width:38px;height:38px;border-radius:9px;
+  display:grid;place-items:center;transition:color .15s,background .15s;
+}
+.ghost:hover{color:var(--ink);background:rgba(255,255,255,.07)}
+.ghost.ok{color:#63d19b}
+.ghost svg{width:18px;height:18px}
+.ghost[hidden]{display:none}
+
+.cfgerr{
+  background:#3a1414;border:1px solid #7a2626;color:#ffb3b3;
+  border-radius:10px;padding:14px 18px;margin-bottom:18px;
+  font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.6;
+}
+.cfgerr[hidden]{display:none}
+footer{
+  margin-top:26px;text-align:center;color:#5a5e65;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,14px);
+  background:var(--brass);color:#221a02;font-size:12px;font-weight:700;
+  padding:10px 18px;border-radius:8px;letter-spacing:.08em;
+  opacity:0;pointer-events:none;transition:all .25s ease;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.fail{background:#c34141;color:#fff}
+
+/* Phones: the stage is exactly one screenful, so all 8 doors are visible
+   at once and the page never scrolls. */
+@media(max-width:759px){
+  body{padding-bottom:10px}
+  .stage{
+    min-height:calc(100dvh - var(--padtop) - 10px);
+    display:flex;flex-direction:column;
+  }
+  .vault{
+    flex:1;min-height:0;
+    grid-template-rows:repeat(4,1fr);
+    gap:8px;margin-bottom:0;
+  }
+  .cell{aspect-ratio:auto}
+  footer{margin-top:10px}
+  .door{gap:3px}
+  .dial{width:24px}
+  .stencil{font-size:clamp(20px,6vw,28px)}
+  .stencil-lab{font-size:7px;letter-spacing:.18em}
+  .tag{font-size:clamp(19px,6.2vw,32px)}
+  .plate{margin-top:5px;padding-top:4px;font-size:8px;letter-spacing:.15em}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .door,.tag,.plate{transition:none !important}
+  .cell.spinning .dial{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cfgerr" id="cfgerr" hidden></div>
+
+<div class="stage">
+
+<header>
+  <div class="sign" id="sign">505 Armory Draw</div>
+  <div class="weeknav">
+    <button class="chev" id="prev" title="Previous week" aria-label="Previous week"></button>
+    <div class="weekmeta">
+      <span class="weekkey" id="weekkey">&mdash;</span><span class="badge hide" id="badge"></span>
+      <span class="weekdates" id="weekdates"></span>
+    </div>
+    <button class="chev" id="next" title="Next week" aria-label="Next week"></button>
+  </div>
+</header>
+
+<div class="controls">
+  <button class="act primary" id="pull">Open the vault</button>
+  <button class="act" id="skip" hidden>Skip</button>
+  <button class="copybtn" id="copy" hidden title="Copy this week's result for chat">
+    <span class="ico" id="copyico"></span><span id="copylabel">Copy</span>
+  </button>
+  <button class="ghost" id="replay" hidden title="Replay" aria-label="Replay"></button>
+  <button class="ghost" id="mute" title="Sound" aria-label="Sound"></button>
+</div>
+
+<div class="vault" id="vault"></div>
+
+<footer>Deterministic &middot; seeded by ISO week (UTC) &middot; v1</footer>
+
+</div>
+
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+<script>
+/* ============================================================
+   CONFIG  — the only block you edit week to week.
+   `alliances` is in rank order 1..5; `allocation` gives each
+   rank its number of armories. Changing either changes every
+   week's result, past and future, by design.
+   ============================================================ */
+const CONFIG = {
+  title:      "505 Armory Draw",
+  version:    "v1",
+  alliances:  ["AoR", "Boo", "NYP", "UF", "PARs"],
+  allocation: [2, 2, 2, 1, 1],
+  armories:   ["01","02","03","04","05","06","07","08"]
+};
+
+/* ---------- sha-256 (sync, ascii) ---------- */
+const sha256 = function(ascii){
+  function rr(v,a){return (v>>>a)|(v<<(32-a));}
+  const mp=Math.pow, maxWord=mp(2,32);
+  let i,j,result='';
+  const words=[];
+  const asciiBitLength=ascii.length*8;
+  let hash=sha256.h=sha256.h||[];
+  const k=sha256.k=sha256.k||[];
+  let primeCounter=k.length;
+  const isComposite={};
+  for(let candidate=2;primeCounter<64;candidate++){
+    if(!isComposite[candidate]){
+      for(i=0;i<313;i+=candidate){isComposite[i]=candidate;}
+      hash[primeCounter]=(mp(candidate,.5)*maxWord)|0;
+      k[primeCounter++]=(mp(candidate,1/3)*maxWord)|0;
+    }
+  }
+  ascii+='\x80';
+  while(ascii.length%64-56) ascii+='\x00';
+  for(i=0;i<ascii.length;i++){
+    j=ascii.charCodeAt(i);
+    if(j>>8) return null;
+    words[i>>2]|=j<<((3-i)%4)*8;
+  }
+  words[words.length]=((asciiBitLength/maxWord)|0);
+  words[words.length]=(asciiBitLength);
+  for(j=0;j<words.length;){
+    const w=words.slice(j,j+=16);
+    const oldHash=hash;
+    hash=hash.slice(0,8);
+    for(i=0;i<64;i++){
+      const w15=w[i-15],w2=w[i-2];
+      const a=hash[0],e=hash[4];
+      const temp1=hash[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]
+        +(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0);
+      const temp2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));
+      hash=[(temp1+temp2)|0].concat(hash);
+      hash[4]=(hash[4]+temp1)|0;
+    }
+    for(i=0;i<8;i++){hash[i]=(hash[i]+oldHash[i])|0;}
+  }
+  for(i=0;i<8;i++){
+    for(j=3;j+1;j--){
+      const b=(hash[i]>>(j*8))&255;
+      result+=((b<16)?0:'')+b.toString(16);
+    }
+  }
+  return result;
+};
+
+/* ---------- prng + shuffle ---------- */
+function mulberry32(a){
+  return function(){
+    a=(a+0x6D2B79F5)|0;
+    let t=a;
+    t=Math.imul(t^t>>>15,1|t);
+    t=(t+Math.imul(t^t>>>7,61|t))^t;
+    return ((t^t>>>14)>>>0)/4294967296;
+  };
+}
+function shuffle(arr,rng){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(rng()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+/* ---------- iso week (UTC, rolls monday 00:00) ---------- */
+const DAY=86400000;
+function mondayOf(date){
+  const t=Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate());
+  const dow=(new Date(t).getUTCDay()+6)%7;   // Mon=0
+  return new Date(t-dow*DAY);
+}
+function weekKeyOf(monday){
+  const thu=new Date(monday.getTime()+3*DAY);
+  const year=thu.getUTCFullYear();
+  const jan4=new Date(Date.UTC(year,0,4));
+  const week1=new Date(jan4.getTime()-((jan4.getUTCDay()+6)%7)*DAY);
+  const week=1+Math.round((thu-week1)/(7*DAY));
+  return year+"-W"+String(week).padStart(2,"0");
+}
+function mondayFromKey(key){
+  const m=/^(\d{4})-W(\d{1,2})$/.exec(key);
+  if(!m) return null;
+  const year=+m[1], week=+m[2];
+  if(week<1||week>53) return null;
+  const jan4=new Date(Date.UTC(year,0,4));
+  const week1=new Date(jan4.getTime()-((jan4.getUTCDay()+6)%7)*DAY);
+  return new Date(week1.getTime()+(week-1)*7*DAY);
+}
+function fmtRange(monday){
+  const sun=new Date(monday.getTime()+6*DAY);
+  const o={month:"short",day:"numeric",timeZone:"UTC"};
+  const a=monday.toLocaleDateString("en-US",o);
+  const b=sun.toLocaleDateString("en-US",o);
+  return a+" – "+b+", "+sun.getUTCFullYear()+" (UTC)";
+}
+
+/* ---------- the draw ---------- */
+function slotList(){
+  const out=[];
+  CONFIG.allocation.forEach((n,rank)=>{
+    for(let i=0;i<n;i++) out.push({tag:CONFIG.alliances[rank],rank:rank+1});
+  });
+  return out;
+}
+// sha256() consumes one byte per char, so encode to UTF-8 first. This keeps
+// the hash identical to `shasum -a 256` even if a tag is non-ASCII.
+function toBytes(str){
+  return Array.from(new TextEncoder().encode(str),b=>String.fromCharCode(b)).join("");
+}
+function draw(weekKey){
+  const roster=CONFIG.alliances.join(",");
+  const seedStr="armory-draw|"+CONFIG.version+"|"+weekKey+"|"+roster;
+  const hash=sha256(toBytes(seedStr));
+  const seed32=parseInt(hash.slice(0,8),16);
+  const rng=mulberry32(seed32);
+  const idx=CONFIG.armories.map((_,i)=>i);
+  const order=shuffle(idx,rng);          // armory indices, in deal order
+  const slots=slotList();                // 8 slots, rank order
+  const assign=new Array(CONFIG.armories.length);
+  order.forEach((armoryIdx,i)=>{ assign[armoryIdx]=slots[i]; });
+  return {seedStr,hash,seed32,order,assign};
+}
+
+/* ---------- sound ---------- */
+const sfx=(()=>{
+  let ctx=null;
+  let on=localStorage.getItem("armory:mute")!=="1";
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function ac(){ if(!ctx) ctx=new (window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function noise(dur,freq,q,gain){
+    const c=ac(), n=Math.floor(c.sampleRate*dur);
+    const buf=c.createBuffer(1,n,c.sampleRate), d=buf.getChannelData(0);
+    for(let i=0;i<n;i++) d[i]=(Math.random()*2-1)*(1-i/n);
+    const s=c.createBufferSource(); s.buffer=buf;
+    const f=c.createBiquadFilter(); f.type="lowpass"; f.frequency.value=freq; f.Q.value=q;
+    const g=c.createGain(); g.gain.value=gain;
+    s.connect(f); f.connect(g); g.connect(c.destination); s.start();
+  }
+  function tone(freq,dur,type,gain,slideTo){
+    const c=ac(), o=c.createOscillator(), g=c.createGain();
+    o.type=type||"sine"; o.frequency.setValueAtTime(freq,c.currentTime);
+    if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo,c.currentTime+dur);
+    g.gain.setValueAtTime(gain||.12,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+dur);
+    o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime+dur);
+  }
+  return {
+    get on(){return on;},
+    toggle(){ on=!on; localStorage.setItem("armory:mute",on?"0":"1"); return on; },
+    clunk(){ if(!on||reduce) return; noise(.16,900,1,.34); tone(58,.24,"sine",.3); },
+    creak(){ if(!on||reduce) return; tone(180,.7,"sawtooth",.03,70); },
+    wheel(){ if(!on||reduce) return;
+      for(let i=0;i<9;i++) setTimeout(()=>noise(.04,2400,1,.1),i*105);
+      tone(90,1.1,"sine",.1,140);
+    },
+    done(){ if(!on||reduce) return;
+      [523.25,659.25,783.99,1046.5].forEach((f,i)=>setTimeout(()=>tone(f,.55,"triangle",.13),i*95));
+    }
+  };
+})();
+
+/* ---------- config sanity ---------- */
+function configError(){
+  const a=CONFIG.alliances.length, al=CONFIG.allocation.length, n=CONFIG.armories.length;
+  const sum=CONFIG.allocation.reduce((x,y)=>x+y,0);
+  if(a!==al) return "alliances ("+a+") and allocation ("+al+") must be the same length";
+  if(new Set(CONFIG.alliances).size!==a) return "duplicate alliance tag";
+  if(new Set(CONFIG.armories).size!==n) return "duplicate armory name";
+  if(sum!==n) return "allocation sums to "+sum+" but there are "+n+" armories";
+  if(CONFIG.allocation.some(v=>!Number.isInteger(v)||v<0)) return "allocation must be whole numbers";
+  return null;
+}
+
+/* ---------- state + render ---------- */
+const $=id=>document.getElementById(id);
+const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const todayMonday=mondayOf(new Date());
+const currentKey=weekKeyOf(todayMonday);
+let viewMonday=todayMonday;
+let result=null;
+let running=false, skipped=false;
+
+function buildVault(){
+  $("vault").innerHTML=CONFIG.armories.map((n,i)=>
+    '<div class="cell" data-i="'+i+'">'+
+      '<div class="chamber">'+
+        '<div class="tag" id="tag'+i+'"></div>'+
+        '<div class="plate">Armory '+n+'</div>'+
+      '</div>'+
+      '<div class="door">'+
+        '<div class="dial"></div>'+
+        '<div class="stencil">'+n+'</div>'+
+        '<div class="stencil-lab">Armory</div>'+
+      '</div>'+
+    '</div>'
+  ).join("");
+}
+
+function renderWeek(){
+  const key=weekKeyOf(viewMonday);
+  result=draw(key);
+  $("weekkey").textContent=key;
+  $("weekdates").textContent=fmtRange(viewMonday);
+  const badge=$("badge");
+  const diff=Math.round((viewMonday-todayMonday)/(7*DAY));
+  if(diff===0){ badge.className="badge hide"; }
+  else{
+    badge.className="badge";
+    badge.textContent = diff<0
+      ? (diff===-1?"last week":(-diff)+" weeks ago")
+      : (diff===1?"next week":"in "+diff+" weeks");
+  }
+  // the vault doors are the result display
+  result.assign.forEach((slot,i)=>{ $("tag"+i).textContent=slot.tag; });
+
+
+  // reset doors, then reveal-or-animate.
+  // Only the current week gets the sealed-vault ceremony; past and future
+  // weeks are a lookup, so they open immediately.
+  closeAll();
+  const seen=localStorage.getItem("armory:seen:"+key)==="1";
+  if(key!==currentKey||seen||REDUCE) revealAll(false); else armVault();
+}
+
+function closeAll(){
+  document.querySelectorAll(".cell").forEach(c=>c.classList.remove("open","spinning"));
+}
+function armVault(){
+  $("pull").hidden=false; $("skip").hidden=true;
+  $("replay").hidden=true; $("copy").hidden=true;
+}
+function revealAll(animateResults){
+  document.querySelectorAll(".cell").forEach(c=>c.classList.add("open"));
+  $("pull").hidden=true; $("skip").hidden=true;
+  $("replay").hidden=false; $("copy").hidden=false;
+  running=false;
+}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+
+async function runSequence(){
+  if(running) return;
+  running=true; skipped=false;
+  $("pull").hidden=true; $("skip").hidden=false;
+  document.querySelectorAll(".cell").forEach(c=>c.classList.add("spinning"));
+  sfx.wheel();
+  await wait(1000);
+  const delays=[420,900,780,660,560,470,400,760];
+  for(let i=0;i<CONFIG.armories.length;i++){
+    if(skipped) break;
+    await wait(delays[i]);
+    if(skipped) break;
+    const cell=document.querySelector('.cell[data-i="'+i+'"]');
+    cell.classList.remove("spinning");
+    cell.classList.add("open");
+    sfx.clunk(); sfx.creak();
+  }
+  if(!skipped){ await wait(700); sfx.done(); }
+  localStorage.setItem("armory:seen:"+weekKeyOf(viewMonday),"1");
+  revealAll(true);
+}
+
+// "01" reads better as "1" in a chat line, but only strip zeros from labels
+// that are actually numeric, so renamed armories survive untouched.
+function shortName(n){ return /^\d+$/.test(n) ? String(parseInt(n,10)) : n; }
+
+// One line, grouped by alliance in rank order, for pasting into game chat.
+function shareText(){
+  const parts=CONFIG.alliances.map(tag=>{
+    const got=CONFIG.armories
+      .filter((_,i)=>result.assign[i].tag===tag)
+      .map(shortName);
+    return tag+": "+got.join(", ");
+  });
+  return parts.join(" / ");
+}
+
+/* ---------- icons ---------- */
+const svg=inner=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '+
+  'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
+const ICON={
+  prev:  svg('<polyline points="15 18 9 12 15 6"/>'),
+  next:  svg('<polyline points="9 18 15 12 9 6"/>'),
+  copy:  svg('<rect x="9" y="9" width="13" height="13" rx="2"/>'+
+             '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'),
+  check: svg('<polyline points="20 6 9 17 4 12"/>'),
+  replay:svg('<polyline points="1 4 1 10 7 10"/>'+
+             '<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>'),
+  soundOn: svg('<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'+
+               '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>'+
+               '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>'),
+  warn:  svg('<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>'+
+             '<line x1="12" y1="16" x2="12.01" y2="16"/>'),
+  soundOff:svg('<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'+
+               '<line x1="23" y1="9" x2="17" y2="15"/>'+
+               '<line x1="17" y1="9" x2="23" y2="15"/>')
+};
+
+/* ---------- wiring ---------- */
+const cfgErr=configError();
+if(cfgErr){
+  const box=$("cfgerr");
+  box.hidden=false;
+  box.textContent="Configuration error — "+cfgErr+". Fix the CONFIG block at the top of armory.html; no draw is shown until it is valid.";
+  document.getElementById("vault").hidden=true;
+  document.querySelector(".controls").hidden=true;
+  throw new Error("armory config: "+cfgErr);
+}
+
+buildVault();
+
+document.title=CONFIG.title;
+$("sign").textContent=CONFIG.title;
+$("prev").innerHTML=ICON.prev;
+$("next").innerHTML=ICON.next;
+$("copyico").innerHTML=ICON.copy;
+$("replay").innerHTML=ICON.replay;
+
+$("pull").onclick=()=>runSequence();
+$("skip").onclick=()=>{
+  skipped=true;
+  localStorage.setItem("armory:seen:"+weekKeyOf(viewMonday),"1");
+  revealAll(false);
+};
+$("replay").onclick=()=>{ closeAll(); runSequence(); };
+function paintMute(on){
+  $("mute").innerHTML=on?ICON.soundOn:ICON.soundOff;
+  $("mute").title=on?"Sound on":"Sound off";
+}
+$("mute").onclick=()=>paintMute(sfx.toggle());
+paintMute(sfx.on);
+
+// The async clipboard API needs a secure context; fall back to execCommand,
+// and if both fail say so rather than claiming a copy that never happened.
+async function writeClipboard(text){
+  try{ await navigator.clipboard.writeText(text); return true; }
+  catch(e){ /* fall through */ }
+  try{
+    const ta=document.createElement("textarea");
+    ta.value=text;
+    ta.setAttribute("readonly","");
+    ta.style.cssText="position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0,text.length);
+    const ok=document.execCommand("copy");
+    ta.remove();
+    return ok;
+  }catch(e){ return false; }
+}
+
+$("copy").onclick=async()=>{
+  const text=shareText();
+  const ok=await writeClipboard(text);
+  const b=$("copy"), t=$("toast");
+
+  t.textContent = ok ? "Copied" : "Couldn’t copy — select the text manually";
+  t.classList.toggle("fail",!ok);
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), ok?1400:2600);
+
+  b.classList.add(ok?"ok":"fail");
+  $("copyico").innerHTML = ok?ICON.check:ICON.warn;
+  $("copylabel").textContent = ok?"Copied":"Failed";
+  setTimeout(()=>{
+    b.classList.remove("ok","fail");
+    $("copyico").innerHTML=ICON.copy;
+    $("copylabel").textContent="Copy";
+  }, ok?1600:2600);
+};
+
+function go(monday){
+  viewMonday=monday;
+  const key=weekKeyOf(monday);
+  history.replaceState(null,"",key===currentKey?location.pathname:"#"+key);
+  renderWeek();
+}
+$("prev").onclick=()=>go(new Date(viewMonday.getTime()-7*DAY));
+$("next").onclick=()=>go(new Date(viewMonday.getTime()+7*DAY));
+
+const fromHash=mondayFromKey(location.hash.replace(/^#/,""));
+go(fromHash||todayMonday);
+</script>
+</body>
+</html>
