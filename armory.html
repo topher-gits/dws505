@@ -198,6 +198,24 @@ button.act.primary{
 button.act.primary:hover{background:linear-gradient(180deg,#f0c854,#9c7c1c)}
 button.act[hidden]{display:none}
 button.act:disabled{opacity:.4;cursor:default}
+.controls[hidden]{display:none}
+.chev:disabled{opacity:.22;cursor:default}
+.chev:disabled:hover{color:#565b63;background:none}
+
+.countdown{text-align:center;margin:0 0 clamp(14px,2.2vw,20px)}
+.countdown[hidden]{display:none}
+.cd-label{
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-dim);margin-bottom:7px;
+}
+.cd-time{
+  font-family:ui-monospace,Menlo,monospace;
+  font-size:clamp(26px,7vw,38px);font-weight:700;
+  color:var(--brass);letter-spacing:.05em;
+  text-shadow:0 0 14px rgba(212,168,54,.35);
+  font-variant-numeric:tabular-nums;   /* stops the digits jittering */
+}
+
 /* Copy is the expected next action once the vault is open, so it carries a
    label and a brass outline. Replay and sound stay quiet beside it. */
 .copybtn{
@@ -295,7 +313,7 @@ footer{
   </div>
 </header>
 
-<div class="controls">
+<div class="controls" id="controls">
   <button class="act primary" id="pull">Open the vault</button>
   <button class="act" id="skip" hidden>Skip</button>
   <button class="copybtn" id="copy" hidden title="Copy this week's result for chat">
@@ -303,6 +321,11 @@ footer{
   </button>
   <button class="ghost" id="replay" hidden title="Replay" aria-label="Replay"></button>
   <button class="ghost" id="mute" title="Sound" aria-label="Sound"></button>
+</div>
+
+<div class="countdown" id="countdown" hidden>
+  <div class="cd-label">Countdown to Registration</div>
+  <div class="cd-time notranslate" id="cdtime" translate="no">&mdash;</div>
 </div>
 
 <div class="vault" id="vault"></div>
@@ -431,6 +454,25 @@ function fmtRange(monday){
   return a+" – "+b+", "+sun.getUTCFullYear()+" (UTC)";
 }
 
+/* ---------- registration deadline ----------
+   Wednesday 02:00 UTC, i.e. 50 hours after the week opens. That is Tuesday
+   9pm US Central during CDT. It is fixed in UTC rather than pinned to the
+   Central clock, so from early November to mid-March it falls at Tuesday 8pm
+   Central instead. Shift utcHour to 3 if it should track winter Central. */
+const REGISTRATION={ daysAfterMonday:2, utcHour:2 };
+
+function registrationAt(monday){
+  return monday.getTime()+REGISTRATION.daysAfterMonday*DAY+REGISTRATION.utcHour*3600000;
+}
+function fmtCountdown(ms){
+  if(ms<0) ms=0;
+  const s=Math.floor(ms/1000);
+  const d=Math.floor(s/86400), h=Math.floor(s%86400/3600),
+        m=Math.floor(s%3600/60), sec=s%60;
+  const pad=n=>String(n).padStart(2,"0");
+  return (d>0? d+"d ":"")+pad(h)+":"+pad(m)+":"+pad(sec);
+}
+
 /* ---------- the draw ---------- */
 function slotList(){
   const out=[];
@@ -517,11 +559,15 @@ let viewMonday=todayMonday;
 let result=null;
 let running=false, skipped=false;
 
+// The tags carry translate="no" and .notranslate so browser translation
+// leaves them alone — "Boo" and "UF" are otherwise fair game for it. The
+// copied text is built from CONFIG rather than scraped from the DOM, so it
+// is unaffected either way.
 function buildVault(){
   $("vault").innerHTML=CONFIG.armories.map((n,i)=>
     '<div class="cell" data-i="'+i+'">'+
       '<div class="chamber">'+
-        '<div class="tag" id="tag'+i+'"></div>'+
+        '<div class="tag notranslate" translate="no" id="tag'+i+'"></div>'+
         '<div class="plate">Armory '+n+'</div>'+
       '</div>'+
       '<div class="door">'+
@@ -547,16 +593,47 @@ function renderWeek(){
       ? (diff===-1?"last week":(-diff)+" weeks ago")
       : (diff===1?"next week":"in "+diff+" weeks");
   }
+  closeAll();
+  updateNav();
+
+  // Before the deadline the current week is sealed. Don't write the tags into
+  // the DOM at all, so the answer isn't sitting there for anyone who opens
+  // the inspector.
+  const left=registrationAt(viewMonday)-Date.now();
+  const locked = key===currentKey && left>0;
+  $("controls").hidden=locked;
+  $("countdown").hidden=!locked;
+
+  if(locked){
+    CONFIG.armories.forEach((_,i)=>{ $("tag"+i).textContent=""; });
+    $("cdtime").textContent=fmtCountdown(left);
+    $("pull").hidden=true; $("skip").hidden=true;
+    $("replay").hidden=true; $("copy").hidden=true;
+    return;
+  }
+
   // the vault doors are the result display
   result.assign.forEach((slot,i)=>{ $("tag"+i).textContent=slot.tag; });
 
-
-  // reset doors, then reveal-or-animate.
-  // Only the current week gets the sealed-vault ceremony; past and future
-  // weeks are a lookup, so they open immediately.
-  closeAll();
+  // Only the current week gets the sealed-vault ceremony; past weeks are a
+  // lookup, so they open immediately.
   const seen=localStorage.getItem("armory:seen:"+key)==="1";
   if(key!==currentKey||seen||REDUCE) revealAll(false); else armVault();
+}
+
+// No looking ahead: the next arrow dies at the current week.
+function updateNav(){
+  $("next").disabled = viewMonday.getTime() >= todayMonday.getTime();
+}
+
+// One clock for both jobs: tick the countdown, and notice if the page has been
+// left open across the Monday 00:00 UTC rollover.
+function clockTick(){
+  if(weekKeyOf(mondayOf(new Date()))!==currentKey){ location.reload(); return; }
+  if($("countdown").hidden) return;
+  const left=registrationAt(viewMonday)-Date.now();
+  if(left<=0){ renderWeek(); return; }   // deadline passed while watching
+  $("cdtime").textContent=fmtCountdown(left);
 }
 
 function closeAll(){
@@ -705,6 +782,8 @@ $("copy").onclick=async()=>{
 };
 
 function go(monday){
+  // clamp forward navigation, including a hand-typed #2026-W40 in the URL
+  if(monday.getTime()>todayMonday.getTime()) monday=todayMonday;
   viewMonday=monday;
   const key=weekKeyOf(monday);
   history.replaceState(null,"",key===currentKey?location.pathname:"#"+key);
@@ -713,8 +792,15 @@ function go(monday){
 $("prev").onclick=()=>go(new Date(viewMonday.getTime()-7*DAY));
 $("next").onclick=()=>go(new Date(viewMonday.getTime()+7*DAY));
 
-const fromHash=mondayFromKey(location.hash.replace(/^#/,""));
-go(fromHash||todayMonday);
+function fromHash(){ return mondayFromKey(location.hash.replace(/^#/,"")); }
+
+// Without this, following a #2026-W33 link while the page is already open
+// changes the URL but re-renders nothing. replaceState doesn't fire this, so
+// go() can't loop through it.
+addEventListener("hashchange",()=>go(fromHash()||todayMonday));
+
+go(fromHash()||todayMonday);
+setInterval(clockTick,1000);
 </script>
 </body>
 </html>

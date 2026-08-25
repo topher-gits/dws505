@@ -27,9 +27,28 @@ stored and nothing is random at page load — every visitor computes the same
 answer from the same two inputs.
 
 `weekKey` is the ISO-8601 week in **UTC**, so the draw rolls over at
-**Monday 00:00 UTC** and stays fixed for the rest of the week. Past and
-future weeks are browsable with the arrows; the sealed-vault animation only
-plays for the current week.
+**Monday 00:00 UTC** and stays fixed for the rest of the week.
+
+## The registration gate
+
+The current week stays sealed behind a countdown until **Tuesday 9pm US
+Central**, so nobody sees their assignment before registration. Central
+observes DST, so that instant is Wed 02:00 UTC in summer and Wed 03:00 UTC in
+winter; the page reads the real offset from `Intl` rather than hardcoding one.
+
+- **Before the deadline** — countdown only. The alliance tags are not written
+  into the page at all, so they can't be read out of the inspector.
+- **After the deadline** — the vault opens normally, once per visitor.
+- **Past weeks** — browsable with the back arrow, doors already open.
+- **Future weeks** — unreachable. The forward arrow is disabled at the current
+  week, and a hand-typed `#2026-W44` in the URL is clamped back.
+
+**This is a speed bump, not a lock.** The draw is computed in the browser from
+the week number, so anyone who reads `armory.html` can compute any week ahead
+of time. Since every armory is interchangeable there's nothing to gain by
+doing so — but if that ever stops being true, the gate would need to move
+server-side, or the seed would need a salt that isn't published until the
+deadline.
 
 ## Reproducing a draw
 
@@ -67,6 +86,20 @@ Two things to know:
 - **`allocation` must sum to the number of armories**, and must be the same
   length as `alliances`. If it isn't, the page refuses to draw and shows a
   configuration error instead of a silently wrong result.
+
+Two parts of the page carry `translate="no"` and `class="notranslate"` so
+browser page-translation leaves them alone:
+
+- **The alliance tags** — otherwise a tag like "Boo" or "UF" gets helpfully
+  translated into whatever language the reader has set.
+- **The countdown timer** — the digits only, not its label. Beyond "1d"
+  becoming "1j", that text node is rewritten by JS every second, and a
+  translator rewriting the same node would be fighting it on every tick. The
+  "Countdown to Registration" label above it stays translatable.
+
+The copied chat line is built from `CONFIG` rather than read back out of the
+page, so it is unaffected either way. The rest of the UI text stays
+translatable on purpose.
 
 `title` is display-only — it is not part of the seed, so renaming the page
 never changes a draw. Bump `version` if you ever want to deliberately re-roll every week from
