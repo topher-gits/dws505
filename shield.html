@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>505 Shield Policy</title>
+<style>
+:root{
+  --bg:#f4f2ee;
+  --panel:#ffffff;
+  --ink:#1c1c1c;
+  --ink-dim:#55524c;
+  --line:#ddd8cf;
+  --brass:#8a6d18;
+  --rule-bg:#fff3e0;
+  --rule-line:#c98a1c;
+  --rule-ink:#5c3d05;
+  --warn-bg:#fdeaea;
+  --warn-line:#c23b3b;
+  --warn-ink:#7a1f1f;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a;
+    --panel:#1c1f24;
+    --ink:#f0ede6;
+    --ink-dim:#b7b2a6;
+    --line:#33363d;
+    --brass:#e0b84a;
+    --rule-bg:#2b220e;
+    --rule-line:#caa53f;
+    --rule-ink:#f0cd6b;
+    --warn-bg:#2b1414;
+    --warn-line:#c9524f;
+    --warn-ink:#ff9b9b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161a;
+  --panel:#1c1f24;
+  --ink:#f0ede6;
+  --ink-dim:#b7b2a6;
+  --line:#33363d;
+  --brass:#e0b84a;
+  --rule-bg:#2b220e;
+  --rule-line:#caa53f;
+  --rule-ink:#f0cd6b;
+  --warn-bg:#2b1414;
+  --warn-line:#c9524f;
+  --warn-ink:#ff9b9b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.page{
+  max-width:680px;
+  margin:0 auto;
+  padding:clamp(20px,5vw,48px) clamp(18px,5vw,28px) 64px;
+}
+header{
+  margin-bottom:clamp(20px,4vw,32px);
+  padding-bottom:clamp(16px,3vw,20px);
+  border-bottom:2px solid var(--brass);
+}
+.eyebrow{
+  font-size:clamp(12px,2.6vw,13px);
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin-bottom:8px;
+}
+h1{
+  margin:0;
+  font-size:clamp(28px,7vw,38px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+p{
+  margin:0 0 1.2em;
+  font-size:clamp(17px,4.3vw,19px);
+  color:var(--ink);
+}
+.dim{color:var(--ink-dim)}
+h2{
+  font-size:clamp(14px,3.2vw,15px);
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin:clamp(28px,5vw,36px) 0 12px;
+}
+.box{
+  border-radius:12px;
+  padding:clamp(16px,4vw,22px) clamp(18px,4.5vw,24px);
+  margin:0 0 1.4em;
+  border:1px solid var(--line);
+  background:var(--panel);
+}
+.box.rule{
+  background:var(--rule-bg);
+  border-color:var(--rule-line);
+}
+.box.warn{
+  background:var(--warn-bg);
+  border-color:var(--warn-line);
+}
+.box p{margin-bottom:0}
+.box p + p{margin-top:.9em}
+.box.rule p{color:var(--rule-ink);font-weight:600}
+.box.warn p{color:var(--warn-ink);font-weight:600}
+.box .label{
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.box.rule .label{color:var(--rule-line)}
+.box.warn .label{color:var(--warn-line)}
+.num{
+  display:inline-flex;
+  align-items:center;justify-content:center;
+  width:1.5em;height:1.5em;
+  border-radius:50%;
+  background:var(--brass);
+  color:#221a02;
+  font-weight:800;
+  font-size:.8em;
+  margin-right:.5em;
+  flex:none;
+}
+.stat{
+  font-variant-numeric:tabular-nums;
+  font-weight:800;
+  color:var(--rule-line);
+}
+footer{
+  margin-top:clamp(28px,5vw,40px);
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:13px;
+  color:var(--ink-dim);
+  letter-spacing:.02em;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="eyebrow">505 &middot; Alliance Policy</div>
+  <h1>Shield Policy</h1>
+</header>
+
+<p>It is understandable to forget a shield now and again &mdash; we are all human.</p>
+
+<p>When we face an opponent like <strong>ASG</strong>, forgetting to shield costs both you and the people who support you. Losses in resources and healing time can be recouped &mdash; <strong>duel points cannot</strong>. That matters most when our duel is close.</p>
+
+<h2>Starting Next Kill Event</h2>
+
+<div class="box rule">
+  <span class="label">If you fail to shield and are about to be attacked</span>
+  <p>Leadership will remove you from the alliance &mdash; temporarily.</p>
+</div>
+
+<p>Doing this denies the opposition <span class="stat">4.5&times;</span> the points they would have taken if you had stayed in the alliance.</p>
+
+<div class="box">
+  <span class="label" style="color:var(--brass)">Getting back in</span>
+  <p>When you log back in, apply and leadership will accept your request.</p>
+</div>
+
+<h2>Also Starting Next Kill Event</h2>
+
+<div class="box rule">
+  <span class="label">Unshielded &amp; offline 1 hour or more</span>
+  <p>Your rank will be demoted until the start of the next Kill Event.</p>
+</div>
+
+<footer>Questions? Ask leadership before the next Kill Event starts.</footer>
+
+</div>
+</body>
+</html>
