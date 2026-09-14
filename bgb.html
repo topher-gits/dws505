@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>505 BGB Policy</title>
+<style>
+:root{
+  --bg:#f4f2ee;
+  --panel:#ffffff;
+  --ink:#1c1c1c;
+  --ink-dim:#55524c;
+  --line:#ddd8cf;
+  --brass:#8a6d18;
+  --on-brass:#fffdf5;
+  --rule-bg:#fff3e0;
+  --rule-line:#c98a1c;
+  --rule-ink:#5c3d05;
+  --red:#c8324b;
+  --blue:#1f6fb8;
+  --green:#1d8a4e;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a;
+    --panel:#1c1f24;
+    --ink:#f0ede6;
+    --ink-dim:#b7b2a6;
+    --line:#33363d;
+    --brass:#e0b84a;
+    --on-brass:#221a02;
+    --rule-bg:#2b220e;
+    --rule-line:#caa53f;
+    --rule-ink:#f0cd6b;
+    --red:#f2647c;
+    --blue:#5aa8ec;
+    --green:#45c07d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161a;
+  --panel:#1c1f24;
+  --ink:#f0ede6;
+  --ink-dim:#b7b2a6;
+  --line:#33363d;
+  --brass:#e0b84a;
+  --on-brass:#221a02;
+  --rule-bg:#2b220e;
+  --rule-line:#caa53f;
+  --rule-ink:#f0cd6b;
+  --red:#f2647c;
+  --blue:#5aa8ec;
+  --green:#45c07d;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.page{
+  max-width:680px;
+  margin:0 auto;
+  padding:clamp(20px,5vw,48px) clamp(18px,5vw,28px) 64px;
+}
+header{
+  margin-bottom:clamp(18px,4vw,26px);
+  padding-bottom:clamp(14px,3vw,18px);
+  border-bottom:2px solid var(--brass);
+}
+.eyebrow{
+  font-size:clamp(12px,2.6vw,13px);
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin-bottom:8px;
+}
+h1{
+  margin:0;
+  font-size:clamp(28px,7vw,38px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+p{
+  margin:0 0 1.2em;
+  font-size:clamp(17px,4.3vw,19px);
+  color:var(--ink);
+}
+h2{
+  font-size:clamp(21px,5.2vw,26px);
+  font-weight:800;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin:clamp(38px,7vw,52px) 0 14px;
+  padding-top:clamp(18px,4vw,24px);
+  border-top:2px solid var(--brass);
+}
+h2:first-of-type{margin-top:clamp(4px,1vw,8px);padding-top:0;border-top:0}
+h3{
+  font-size:clamp(14px,3.2vw,15px);
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin:clamp(26px,5vw,32px) 0 12px;
+}
+.box{
+  border-radius:12px;
+  padding:clamp(16px,4vw,22px) clamp(18px,4.5vw,24px);
+  margin:0 0 1.4em;
+  border:1px solid var(--line);
+  background:var(--panel);
+}
+.box.rule{
+  background:var(--rule-bg);
+  border-color:var(--rule-line);
+}
+.box.todo{
+  background:transparent;
+  border:1.5px dashed var(--line);
+}
+.box p{margin-bottom:0}
+.box p + p{margin-top:.9em}
+.box.rule p{color:var(--rule-ink);font-weight:600}
+.box p.note{font-size:.92em;font-weight:500;opacity:.85}
+.box.todo p{color:var(--ink-dim);font-size:clamp(15px,3.9vw,17px)}
+.box .label{
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.box.rule .label{color:var(--rule-line)}
+.box.todo .label{color:var(--brass)}
+.box .label.brass{color:var(--brass)}
+.stat{
+  font-variant-numeric:tabular-nums;
+  font-weight:800;
+  color:var(--rule-line);
+}
+.mapwrap{
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#ffffff;
+  padding:clamp(10px,2.5vw,14px);
+  margin:0 0 .6em;
+}
+img.map{display:block;width:100%;height:auto;border-radius:6px}
+.mapfig{margin:0}
+.mapfig figcaption{
+  font-size:clamp(12px,2.8vw,13px);
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin-bottom:8px;
+}
+.maphint{
+  font-size:13px;
+  color:var(--ink-dim);
+  text-align:center;
+  margin:0 0 1.6em;
+}
+.steps{
+  list-style:none;
+  counter-reset:step;
+  margin:0 0 1.5em;
+  padding:0;
+}
+.steps li{
+  position:relative;
+  counter-increment:step;
+  padding:0 0 0 2.7em;
+  margin-bottom:.95em;
+  font-size:clamp(16px,4.1vw,18px);
+}
+.steps li::before{
+  content:counter(step);
+  position:absolute;
+  left:0;
+  top:.12em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:1.75em;
+  height:1.75em;
+  border-radius:50%;
+  background:var(--brass);
+  color:var(--on-brass);
+  font-weight:800;
+  font-size:.82em;
+}
+.steps .phase{font-weight:800}
+.groups{
+  list-style:none;
+  margin:0 0 1.4em;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--panel);
+  overflow:hidden;
+}
+.groups li{
+  display:flex;
+  gap:12px;
+  align-items:baseline;
+  padding:clamp(12px,3vw,15px) clamp(16px,4vw,20px);
+  font-size:clamp(15px,3.8vw,17px);
+}
+.groups li + li{border-top:1px solid var(--line)}
+.groups b{
+  flex:none;
+  min-width:4.2em;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+.groups .g-red{color:var(--red)}
+.groups .g-blue{color:var(--blue)}
+.groups .g-green{color:var(--green)}
+footer{
+  margin-top:clamp(28px,5vw,40px);
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:13px;
+  color:var(--ink-dim);
+  letter-spacing:.02em;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="eyebrow">505 &middot; AoR &middot; Alliance Policy</div>
+  <h1>Black Gold Battlefield</h1>
+</header>
+
+<h2>BGB Map</h2>
+
+<p>The battlefield spawns in two orientations. Check which one you are in before you move. <strong>Blue always takes the Refineries beside our Safe Zone</strong> &mdash; Red and Green shift to cover the rest.</p>
+
+<figure class="mapfig">
+  <figcaption>Safe Zone top right</figcaption>
+  <div class="mapwrap">
+    <img class="map" src="bgb-map-top-right.png" width="2160" height="1560"
+         alt="Battlefield with our Safe Zone top right and the enemy bottom left. Alloy Factory at the center. Blue holds the two Refineries on the upper right beside our Safe Zone. Red holds the Military and Hospital on the northwest with two Refineries. Green holds the Hospital and Military on the south with two Refineries.">
+  </div>
+</figure>
+
+<figure class="mapfig">
+  <figcaption>Safe Zone bottom left</figcaption>
+  <div class="mapwrap">
+    <img class="map" src="bgb-map-bottom-left.png" width="2160" height="1560"
+         alt="Battlefield with our Safe Zone bottom left and the enemy top right. Alloy Factory at the center. Blue holds the two Refineries on the lower left beside our Safe Zone. Red holds the Military and Hospital on the north with the two upper Refineries. Green holds the Hospital and Military on the south with the two right-hand Refineries.">
+  </div>
+</figure>
+
+<p class="maphint">Long-press or right-click a map to copy or save it.</p>
+
+<ul class="groups">
+  <li><b class="g-red">Red</b><span>One Military, one Hospital, two Refineries</span></li>
+  <li><b class="g-blue">Blue</b><span>The Alloy Factory, plus the two Refineries beside our Safe Zone</span></li>
+  <li><b class="g-green">Green</b><span>One Military, one Hospital, two Refineries</span></li>
+</ul>
+
+<h2>Players</h2>
+
+<p>BGB runs two timeslots each week, and we can field <span class="stat">60</span> players across them &mdash; Team A and Team B, thirty each. AoR has closer to a hundred members. The roster is the scarce thing.</p>
+
+<h3>Signing Up</h3>
+
+<div class="box rule">
+  <span class="label">Answer both timeslots</span>
+  <p>Select <strong>Ready</strong> for every time you can attend. Select <strong>Decline</strong> for every time you cannot.</p>
+</div>
+
+<div class="box">
+  <span class="label brass">No response counts as a Decline</span>
+  <p>If you answer neither timeslot, you will not be selected.</p>
+</div>
+
+<h3>Starters</h3>
+
+<p>Being a Starter is a benefit and a responsibility.</p>
+
+<div class="box rule">
+  <span class="label">A Starter who scores under 100k</span>
+  <p>You sit out the next BGB.</p>
+  <p class="note">Missing the battle scores zero, so marking Ready and not showing up falls under this rule too.</p>
+</div>
+
+<p>If you are not scoring <span class="stat">100k</span>, we should be giving that opportunity to someone else. This does not apply to Substitutes.</p>
+
+<p>Claiming a slot you do not use costs the other twenty-nine people on your team.</p>
+
+<h3>Substitutes</h3>
+
+<div class="box rule">
+  <span class="label">Be there when the battle starts</span>
+  <p>Substitutes need to be online and ready to sub in from the moment BGB begins.</p>
+</div>
+
+<p>With <span class="stat">10</span> minutes left, leaders will start asking players to step out so Substitutes can come in.</p>
+
+<p>In a close match we may use judgement and leave the strongest players in longer &mdash; but we will try to bring Substitutes in before the last <span class="stat">5</span> minutes so they still get their points.</p>
+
+<h2>Leaders</h2>
+
+<h3>Responsibilities</h3>
+
+<ol class="steps">
+  <li>Remind players to select Ready or Decline when it is time.</li>
+  <li>Select players for Team A and Team B before BGB selection ends.</li>
+  <li>Update the spreadsheet with who voted Ready for Team A or Team B.</li>
+  <li><span class="phase">Before BGB</span> &mdash; split Starters into Blue, Red and Green groups.</li>
+  <li><span class="phase">During BGB</span> &mdash; monitor the battle and swap Substitutes in.</li>
+  <li><span class="phase">After BGB</span> &mdash; update the spreadsheet with BGB points scored, and highlight any Starter who scored under <span class="stat">100k</span>.</li>
+</ol>
+
+<h3>Team Selection</h3>
+
+<p>Teams are sorted by <strong>BGB score</strong>.</p>
+
+<div class="box todo">
+  <span class="label">Add a screenshot</span>
+  <p>Show where to find a player's BGB score in game.</p>
+</div>
+
+<h3>Still To Decide</h3>
+
+<div class="box todo">
+  <span class="label">Building the rosters</span>
+  <p>Who runs the selection, at what point in the two-day window, and where the finished rosters get posted so players know before the battle starts.</p>
+</div>
+
+<div class="box todo">
+  <span class="label">Assigning Red, Blue and Green</span>
+  <p>How the thirty on each team are split across the three groups, and whether a player keeps the same group from week to week.</p>
+</div>
+
+<div class="box todo">
+  <span class="label">Tracking participation</span>
+  <p>How attendance and scores are recorded after each battle, and where a player can see the number they were measured against.</p>
+</div>
+
+<footer>Questions? Ask leadership before selections lock.</footer>
+
+</div>
+</body>
+</html>

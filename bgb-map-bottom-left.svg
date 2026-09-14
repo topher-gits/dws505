@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="map" viewBox="0 0 720 520" role="img"
+     aria-label="Black Gold Battlefield map: Alloy Factory at center, ringed by a diamond of two Field Hospitals and six Oil Refineries, with Military Bases in opposite corners.">
+<style>.lbl{font:700 17px ui-sans-serif,system-ui,-apple-system,&quot;Segoe UI&quot;,Roboto,sans-serif;fill:#1c1c1c;letter-spacing:.03em}.zlbl{font:800 16px ui-sans-serif,system-ui,-apple-system,&quot;Segoe UI&quot;,Roboto,sans-serif;letter-spacing:.09em}.lbl,.zlbl{paint-order:stroke;stroke:#faf8f4;stroke-width:6px;stroke-linejoin:round}.icon{stroke:#1c1c1c;stroke-width:3;stroke-linejoin:round}</style>
+  <defs>
+    <g id="sword">
+      <path d="M 0,-21 L 3.4,-15 L 3.4,9 L -3.4,9 L -3.4,-15 Z"/>
+      <rect x="-11" y="9" width="22" height="5.5" rx="2.6"/>
+      <rect x="-2.8" y="14.5" width="5.6" height="7.5" rx="2.4"/>
+    </g>
+  </defs>
+
+  <rect x="30" y="20" width="660" height="480" rx="10"
+        fill="#faf8f4" stroke="#8f887c" stroke-width="3"/>
+
+  <!-- quadrant guides -->
+  <g stroke="#cdc7bc" stroke-width="2" stroke-dasharray="2 10"
+     stroke-linecap="round" opacity=".7">
+    <line x1="360" y1="20" x2="360" y2="500"/>
+    <line x1="30" y1="260" x2="690" y2="260"/>
+  </g>
+  <!-- the diamond -->
+  <path d="M 360,95 L 590,260 L 360,425 L 130,260 Z" fill="none"
+        stroke="#cdc7bc" stroke-width="2.5" stroke-dasharray="10 9"/>
+
+  <!-- zones -->
+  <rect x="30" y="422" width="192" height="78" rx="10"
+        fill="#fdf3cf" stroke="#b8891a" stroke-width="3"/>
+  <g fill="#b8891a" transform="translate(66,461)">
+    <path d="M 0,-18 L 15,-11.5 L 15,3 C 15,12.5 8,18.5 0,21.5
+             C -8,18.5 -15,12.5 -15,3 L -15,-11.5 Z"/>
+  </g>
+  <text class="zlbl" x="92" y="467" fill="#b8891a"
+        stroke="#fdf3cf">SAFE ZONE</text>
+
+  <rect x="530" y="20" width="160" height="78" rx="10"
+        fill="#fce9ec" stroke="#b3273d" stroke-width="3"/>
+  <g fill="#b3273d" transform="translate(566,59)">
+    <use href="#sword" transform="rotate(42)"/>
+    <use href="#sword" transform="rotate(-42)"/>
+  </g>
+  <text class="zlbl" x="592" y="65" fill="#b3273d"
+        stroke="#fce9ec">ENEMY</text>
+
+  <!-- ===== RED ===== -->
+  <path class="icon" fill="#c8324b"
+    d="M 115,64 L 121.47,81.10 L 139.73,81.97 L 125.46,93.40 L 130.29,111.03 L 115,101 L 99.71,111.03 L 104.54,93.40 L 90.27,81.97 L 108.53,81.10 Z"/>
+  <text class="lbl" x="115" y="138" text-anchor="middle">Military</text>
+
+  <path class="icon" fill="#c8324b"
+    d="M 352,66 L 368,66 L 368,80 L 382,80 L 382,96 L 368,96 L 368,110 L 352,110 L 352,96 L 338,96 L 338,80 L 352,80 Z"/>
+  <text class="lbl" x="360" y="141" text-anchor="middle">Hospital</text>
+
+  <path class="icon" fill="#c8324b"
+    d="M 245,149 C 258,165 261,173 261,177 A 16,16 0 1,1 229,177 C 229,173 232,165 245,149 Z"/>
+  <text class="lbl" x="245" y="223" text-anchor="middle">Refinery</text>
+
+  <path class="icon" fill="#1f6fb8"
+    d="M 130,232 C 143,248 146,256 146,260 A 16,16 0 1,1 114,260 C 114,256 117,248 130,232 Z"/>
+  <text class="lbl" x="130" y="306" text-anchor="middle">Refinery</text>
+
+  <!-- ===== BLUE ===== -->
+  <path class="icon" fill="#1f6fb8"
+    d="M 360,224 L 392,251 L 392,290 L 328,290 L 328,251 Z"/>
+  <text class="lbl" x="360" y="316" text-anchor="middle">Alloy</text>
+
+  <path class="icon" fill="#c8324b"
+    d="M 475,149 C 488,165 491,173 491,177 A 16,16 0 1,1 459,177 C 459,173 462,165 475,149 Z"/>
+  <text class="lbl" x="475" y="223" text-anchor="middle">Refinery</text>
+
+  <path class="icon" fill="#1d8a4e"
+    d="M 590,232 C 603,248 606,256 606,260 A 16,16 0 1,1 574,260 C 574,256 577,248 590,232 Z"/>
+  <text class="lbl" x="590" y="306" text-anchor="middle">Refinery</text>
+
+  <!-- ===== GREEN ===== -->
+  <path class="icon" fill="#1f6fb8"
+    d="M 245,315 C 258,331 261,339 261,343 A 16,16 0 1,1 229,343 C 229,339 232,331 245,315 Z"/>
+  <text class="lbl" x="245" y="389" text-anchor="middle">Refinery</text>
+
+  <path class="icon" fill="#1d8a4e"
+    d="M 475,315 C 488,331 491,339 491,343 A 16,16 0 1,1 459,343 C 459,339 462,331 475,315 Z"/>
+  <text class="lbl" x="475" y="389" text-anchor="middle">Refinery</text>
+
+  <path class="icon" fill="#1d8a4e"
+    d="M 352,396 L 368,396 L 368,410 L 382,410 L 382,426 L 368,426 L 368,440 L 352,440 L 352,426 L 338,426 L 338,410 L 352,410 Z"/>
+  <text class="lbl" x="360" y="471" text-anchor="middle">Hospital</text>
+
+  <path class="icon" fill="#1d8a4e"
+    d="M 605,404 L 611.47,421.10 L 629.73,421.97 L 615.46,433.40 L 620.29,451.03 L 605,441 L 589.71,451.03 L 594.54,433.40 L 580.27,421.97 L 598.53,421.10 Z"/>
+  <text class="lbl" x="605" y="478" text-anchor="middle">Military</text>
+</svg>
