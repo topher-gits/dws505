@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>505 Precision Parts</title>
+<style>
+:root{
+  --bg:#f4f2ee;
+  --panel:#ffffff;
+  --ink:#1c1c1c;
+  --ink-dim:#55524c;
+  --ink-faint:#9a958b;
+  --line:#ddd8cf;
+  --line-soft:#ebe7e0;
+  --brass:#8a6d18;
+  --on-brass:#fffdf5;
+  --rule-bg:#fff3e0;
+  --rule-line:#c98a1c;
+  --zebra:#faf8f4;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a;
+    --panel:#1c1f24;
+    --ink:#f0ede6;
+    --ink-dim:#b7b2a6;
+    --ink-faint:#6f6b63;
+    --line:#33363d;
+    --line-soft:#26292f;
+    --brass:#e0b84a;
+    --on-brass:#221a02;
+    --rule-bg:#2b220e;
+    --rule-line:#caa53f;
+    --zebra:#1f2329;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161a;
+  --panel:#1c1f24;
+  --ink:#f0ede6;
+  --ink-dim:#b7b2a6;
+  --ink-faint:#6f6b63;
+  --line:#33363d;
+  --line-soft:#26292f;
+  --brass:#e0b84a;
+  --on-brass:#221a02;
+  --rule-bg:#2b220e;
+  --rule-line:#caa53f;
+  --zebra:#1f2329;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.page{
+  max-width:720px;
+  margin:0 auto;
+  padding:clamp(20px,5vw,48px) clamp(14px,4vw,28px) 64px;
+}
+header{
+  margin-bottom:clamp(14px,3vw,20px);
+  padding-bottom:clamp(12px,2.5vw,16px);
+  border-bottom:2px solid var(--brass);
+}
+.eyebrow{
+  font-size:clamp(12px,2.6vw,13px);
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin-bottom:8px;
+}
+h1{
+  margin:0;
+  font-size:clamp(28px,7vw,38px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+p{margin:0 0 1.1em;font-size:clamp(15px,3.7vw,17px);color:var(--ink-dim)}
+
+/* ---- tier picker ---- */
+.picker{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:var(--bg);
+  padding:10px 0 12px;
+  margin-bottom:4px;
+}
+.picker .lede{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin-bottom:8px;
+}
+.tiers{display:flex;gap:clamp(4px,1.2vw,8px)}
+.tier{
+  flex:1 1 0;
+  min-width:0;
+  appearance:none;
+  border:1.5px solid var(--line);
+  background:var(--panel);
+  color:var(--ink-dim);
+  border-radius:10px;
+  padding:clamp(8px,2.2vw,11px) 0;
+  font:800 clamp(15px,4vw,17px)/1 ui-sans-serif,system-ui,sans-serif;
+  font-variant-numeric:tabular-nums;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .12s,color .12s,border-color .12s;
+}
+.tier:hover{border-color:var(--brass)}
+.tier[aria-pressed="true"]{
+  background:var(--brass);
+  border-color:var(--brass);
+  color:var(--on-brass);
+}
+.tier:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* ---- table ---- */
+.card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--panel);
+  overflow:hidden;
+  margin-bottom:1.4em;
+}
+table{width:100%;border-collapse:collapse}
+caption{
+  text-align:left;
+  padding:clamp(13px,3.2vw,17px) clamp(14px,3.6vw,20px) 0;
+  font-size:clamp(17px,4.4vw,20px);
+  font-weight:800;
+  letter-spacing:-.01em;
+  color:var(--ink);
+}
+th,td{
+  padding:clamp(9px,2.4vw,12px) clamp(8px,2.4vw,14px);
+  text-align:right;
+  font-size:clamp(14px,3.7vw,16px);
+  border-bottom:1px solid var(--line-soft);
+}
+th{
+  font-size:clamp(10px,2.5vw,11px);
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  vertical-align:bottom;
+  line-height:1.3;
+  border-bottom:1px solid var(--line);
+}
+th:first-child,td:first-child{
+  text-align:left;
+  padding-left:clamp(14px,3.6vw,20px);
+  font-weight:600;
+}
+th:last-child,td:last-child{padding-right:clamp(14px,3.6vw,20px)}
+td{font-variant-numeric:tabular-nums}
+tbody tr:nth-child(odd){background:var(--zebra)}
+td.total{font-weight:800}
+td.none{color:var(--ink-faint)}
+tfoot td{
+  border-bottom:0;
+  border-top:2px solid var(--brass);
+  font-weight:800;
+  background:var(--rule-bg);
+  color:var(--rule-line);
+}
+tfoot td:first-child{color:var(--rule-line)}
+
+/* ---- all-tiers matrix ---- */
+details{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--panel);
+  overflow:hidden;
+}
+summary{
+  cursor:pointer;
+  padding:clamp(13px,3.2vw,16px) clamp(14px,3.6vw,20px);
+  font-size:clamp(13px,3.3vw,14px);
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:var(--brass);
+  -webkit-tap-highlight-color:transparent;
+}
+summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+.scroller{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border-top:1px solid var(--line);
+  /* snap to column edges so the sticky name column never clips a
+     number down to a smaller, still-plausible one */
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:148px;
+}
+.scroller table{min-width:560px}
+.scroller th,.scroller td{font-size:clamp(12px,3vw,14px);padding:8px 10px;white-space:nowrap}
+.scroller th:not(:first-child),.scroller td:not(:first-child){scroll-snap-align:start}
+.scroller th:first-child,.scroller td:first-child{
+  position:sticky;left:0;
+  width:148px;min-width:148px;
+  white-space:normal;
+  background:var(--panel);
+  box-shadow:1px 0 0 var(--line-soft);
+}
+.scroller tbody tr:nth-child(odd) td:first-child{background:var(--zebra)}
+.note{font-size:13px;color:var(--ink-dim);margin:1.1em 0 0}
+footer{
+  margin-top:clamp(26px,5vw,38px);
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:13px;
+  color:var(--ink-dim);
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="eyebrow">505 &middot; Reference</div>
+  <h1>Precision Parts</h1>
+</header>
+
+<p>Parts needed to upgrade each building, by tier. Every tier takes <strong>5 notches</strong>, so the total is five times the per-notch cost.</p>
+
+<div class="picker">
+  <div class="lede" id="tierlabel">Tier</div>
+  <div class="tiers" role="group" aria-labelledby="tierlabel" id="tiers"></div>
+</div>
+
+<div class="card">
+  <table>
+    <caption id="cap">Tier 1</caption>
+    <thead>
+      <tr>
+        <th scope="col">Building</th>
+        <th scope="col">Parts<br>per notch</th>
+        <th scope="col">Total<br>for tier</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+    <tfoot>
+      <tr><td>All buildings</td><td id="sumNotch"></td><td id="sumTotal"></td></tr>
+    </tfoot>
+  </table>
+</div>
+
+<details>
+  <summary>Every tier at a glance</summary>
+  <div class="scroller">
+    <table>
+      <thead><tr id="matrixHead"></tr></thead>
+      <tbody id="matrixBody"></tbody>
+      <tfoot><tr id="matrixFoot"></tr></tfoot>
+    </table>
+  </div>
+</details>
+
+<p class="note" id="dash">&mdash; means the building takes no precision parts at that tier.</p>
+
+<footer>Totals are calculated from the per-notch cost, five notches to a tier.</footer>
+
+</div>
+
+<script>
+(function(){
+  var NOTCHES = 5;
+  var BUILDINGS = ["Watch Tower","Troop buildings","Research center","Medical workshop",
+                   "Construction hall","Radar","Training ground","Mart","Military center",
+                   "Library","Alliance Plaza","Reservist camp","Guild"];
+  // parts per notch; 0 = the building takes none at that tier
+  var PER_NOTCH = {
+    1:[180, 80,180,30, 50,100, 50, 50,250, 50,30,150, 50],
+    2:[220, 90,220,40, 60,  0, 60, 60,300, 60,40,180, 50],
+    3:[260,110,260,50, 80,140, 80, 80,360, 80,40,  0, 60],
+    4:[310,130,310,60, 90,140, 90, 90,440, 90,50,  0, 70],
+    5:[370,160,370,70,110,210,110,110,520,110,60,  0, 90],
+    6:[300,120,300,60, 90,150, 90, 90,400, 90,50,250, 70],
+    7:[320,140,  0,70,100,  0,100,100,440,100,60,  0, 80],
+    8:[350,160,  0, 0,120,  0,120,120,  0,120, 0,  0,100]
+  };
+  var TIERS = [1,2,3,4,5,6,7,8];
+
+  var fmt = function(n){ return n.toLocaleString('en-US'); };
+  var cell = function(n, cls){
+    if(n === 0) return '<td class="none">&mdash;</td>';
+    return '<td class="' + (cls||'') + '">' + fmt(n) + '</td>';
+  };
+
+  function renderTier(t){
+    var per = PER_NOTCH[t], rows = '', sumN = 0, sumT = 0;
+    for(var i=0;i<BUILDINGS.length;i++){
+      var n = per[i];
+      sumN += n; sumT += n * NOTCHES;
+      rows += '<tr><td>' + BUILDINGS[i] + '</td>' + cell(n) +
+              cell(n * NOTCHES, 'total') + '</tr>';
+    }
+    document.getElementById('rows').innerHTML = rows;
+    document.getElementById('cap').textContent = 'Tier ' + t;
+    document.getElementById('sumNotch').textContent = fmt(sumN);
+    document.getElementById('sumTotal').textContent = fmt(sumT);
+
+    var btns = document.querySelectorAll('.tier');
+    for(var j=0;j<btns.length;j++){
+      btns[j].setAttribute('aria-pressed', String(+btns[j].dataset.tier === t));
+    }
+    try{ localStorage.setItem('pp-tier', String(t)); }catch(e){}
+  }
+
+  // tier buttons
+  var tiersEl = document.getElementById('tiers'), html = '';
+  TIERS.forEach(function(t){
+    html += '<button type="button" class="tier" data-tier="' + t +
+            '" aria-pressed="false" aria-label="Tier ' + t + '">' + t + '</button>';
+  });
+  tiersEl.innerHTML = html;
+  tiersEl.addEventListener('click', function(e){
+    var b = e.target.closest('.tier');
+    if(b) renderTier(+b.dataset.tier);
+  });
+
+  // all-tiers matrix, showing the total for each tier
+  var head = '<th scope="col">Building</th>';
+  TIERS.forEach(function(t){ head += '<th scope="col">T' + t + '</th>'; });
+  document.getElementById('matrixHead').innerHTML = head;
+
+  var body = '';
+  BUILDINGS.forEach(function(name, i){
+    body += '<tr><td>' + name + '</td>';
+    TIERS.forEach(function(t){ body += cell(PER_NOTCH[t][i] * NOTCHES, 'total'); });
+    body += '</tr>';
+  });
+  document.getElementById('matrixBody').innerHTML = body;
+
+  var foot = '<td>All buildings</td>';
+  TIERS.forEach(function(t){
+    var s = PER_NOTCH[t].reduce(function(a,b){ return a+b; }, 0) * NOTCHES;
+    foot += '<td>' + fmt(s) + '</td>';
+  });
+  document.getElementById('matrixFoot').innerHTML = foot;
+
+  var start = 1;
+  try{
+    var saved = parseInt(localStorage.getItem('pp-tier'), 10);
+    if(saved >= 1 && saved <= 8) start = saved;
+  }catch(e){}
+  renderTier(start);
+})();
+</script>
+</body>
+</html>
