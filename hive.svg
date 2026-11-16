@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 984" width="1600" height="984" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1608 988" width="1608" height="988" role="img" aria-labelledby="t d">
 <title id="t">Ragnarok hive layout</title>
 <desc id="d">Alliance base placement around Frankie at the center. 100 bases; R4 and R5 ranks are marked with badges.</desc>
 <defs>
-  <pattern id="gridMinor" x="61" y="61" width="30.7708" height="30.7708" patternUnits="userSpaceOnUse">
-    <path d="M30.7708 0H0V30.7708" fill="none" stroke="#d3dae4" stroke-width="1"/>
+  <pattern id="gridMinor" x="60" y="60" width="31" height="31" patternUnits="userSpaceOnUse">
+    <path d="M31 0H0V31" fill="none" stroke="#d3dae4" stroke-width="1" shape-rendering="crispEdges"/>
   </pattern>
-  <pattern id="gridMajor" x="61" y="61" width="92.3125" height="92.3125" patternUnits="userSpaceOnUse">
-    <path d="M92.3125 0H0V92.3125" fill="none" stroke="#9fabbb" stroke-width="1.5"/>
+  <pattern id="gridMajor" x="60" y="60" width="93" height="93" patternUnits="userSpaceOnUse">
+    <path d="M93 0H0V93" fill="none" stroke="#8f9bad" stroke-width="2" shape-rendering="crispEdges"/>
   </pattern>
   <linearGradient id="tileFill" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#3d7ee8"/>
@@ -27,232 +27,332 @@
     </g>
   </symbol>
 </defs>
-<rect width="1600" height="984" fill="#f5f7fa"/>
-<rect width="1600" height="984" fill="url(#gridMinor)"/>
-<rect width="1600" height="984" fill="url(#gridMajor)"/>
-<g font-family="'Segoe UI', 'Noto Sans', 'Noto Sans KR', 'Noto Sans SC', system-ui, sans-serif" text-anchor="middle">
-  <g transform="translate(184.08 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Marmara</text>
+<rect width="1608" height="988" fill="#f5f7fa"/>
+<rect width="1608" height="988" fill="url(#gridMinor)"/>
+<rect width="1608" height="988" fill="url(#gridMajor)"/>
+<g font-family="'Segoe UI', 'Noto Sans', 'Noto Sans KR', 'Noto Sans SC', system-ui, sans-serif" font-weight="700" text-anchor="middle">
+  <g transform="translate(184 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Marmara</text>
 </g>
-  <g transform="translate(276.40 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Arthur Fleck</text>
+  <g transform="translate(277 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">Arthur</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">Fleck</text>
 </g>
-  <g transform="translate(368.71 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">2eSToO</text>
+  <g transform="translate(370 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">2eSToO</text>
 </g>
-  <g transform="translate(184.08 153.31)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">BabyMama</text>
+  <g transform="translate(184 153)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="13" fill="#0d1b2e">BabyMama</text>
 </g>
-  <g transform="translate(276.40 153.31)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">구연산중독자</text>
+  <g transform="translate(277 153)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">구연산중독자</text>
 </g>
-  <g transform="translate(368.71 153.31)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Snow</text>
+  <g transform="translate(370 153)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Snow</text>
 </g>
-  <g transform="translate(522.56 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">alaa h r z</text>
+  <g transform="translate(525 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">alaa h r z</text>
 </g>
-  <g transform="translate(614.88 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Ti-Duck</text>
+  <g transform="translate(618 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Ti-Duck</text>
 </g>
-  <g transform="translate(707.19 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">x-x</text>
+  <g transform="translate(711 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">x-x</text>
 </g>
-  <g transform="translate(799.50 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Zoleen</text>
+  <g transform="translate(804 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Zoleen</text>
 </g>
-  <g transform="translate(891.81 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Silent P</text>
+  <g transform="translate(897 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Silent P</text>
 </g>
-  <g transform="translate(984.12 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Euyueuy</text>
+  <g transform="translate(990 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Euyueuy</text>
 </g>
-  <g transform="translate(1137.98 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Chino</text>
+  <g transform="translate(1145 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Chino</text>
 </g>
-  <g transform="translate(1230.29 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Sonic</text>
+  <g transform="translate(1238 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Sonic</text>
 </g>
-  <g transform="translate(1322.60 61.00)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Kizer</text>
+  <g transform="translate(1331 60)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Kizer</text>
 </g>
-  <g transform="translate(1137.98 153.31)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Cats Eye</text>
+  <g transform="translate(1145 153)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Cats Eye</text>
 </g>
-  <g transform="translate(1230.29 153.31)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="11" fill="#1b2433">Long Ngao Then</text>
+  <g transform="translate(1238 153)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">Long Ngao</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">Then</text>
 </g>
-  <g transform="translate(1322.60 153.31)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Kence0550</text>
+  <g transform="translate(1331 153)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="13" fill="#0d1b2e">Kence0550</text>
 </g>
-  <g transform="translate(491.79 184.08)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Abao4488</text>
+  <g transform="translate(494 184)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Abao4488</text>
 </g>
-  <g transform="translate(584.10 184.08)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">FiRaR</text>
+  <g transform="translate(587 184)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">FiRaR</text>
 </g>
-  <g transform="translate(676.42 184.08)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Mazar</text>
+  <g transform="translate(680 184)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Mazar</text>
 </g>
-  <g transform="translate(830.27 184.08)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Hathai</text>
+  <g transform="translate(835 184)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Hathai</text>
 </g>
-  <g transform="translate(922.58 184.08)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Malik</text>
+  <g transform="translate(928 184)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Malik</text>
 </g>
-  <g transform="translate(1014.90 184.08)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">LRPete</text>
+  <g transform="translate(1021 184)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">LRPete</text>
 </g>
-  <g transform="translate(61.00 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Kong</text>
+  <g transform="translate(60 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Kong</text>
 </g>
-  <g transform="translate(153.31 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">thera</text>
+  <g transform="translate(153 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">thera</text>
 </g>
-  <g transform="translate(245.62 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">nesus</text>
+  <g transform="translate(246 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">nesus</text>
 </g>
-  <g transform="translate(337.94 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Dasom</text>
+  <g transform="translate(339 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Dasom</text>
 </g>
-  <g transform="translate(61.00 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Yaeee</text>
+  <g transform="translate(60 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Yaeee</text>
 </g>
-  <g transform="translate(153.31 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Chief Liu</text>
+  <g transform="translate(153 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Chief Liu</text>
 </g>
-  <g transform="translate(245.62 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">어리둥절물범</text>
+  <g transform="translate(246 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">어리둥절물범</text>
 </g>
-  <g transform="translate(337.94 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">pompom푸린</text>
+  <g transform="translate(339 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="12" fill="#0d1b2e">pompom푸린</text>
 </g>
-  <g transform="translate(491.79 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">하나둘셋123</text>
+  <g transform="translate(494 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">하나둘셋123</text>
 </g>
-  <g transform="translate(491.79 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Yazi</text>
+  <g transform="translate(494 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Yazi</text>
 </g>
-  <g transform="translate(1014.90 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">maomao</text>
+  <g transform="translate(1021 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">maomao</text>
 </g>
-  <g transform="translate(1014.90 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">RENATA</text>
+  <g transform="translate(1021 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">RENATA</text>
 </g>
-  <g transform="translate(1168.75 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">N a N a</text>
+  <g transform="translate(1176 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">N a N a</text>
 </g>
-  <g transform="translate(1261.06 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Goku</text>
+  <g transform="translate(1269 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Goku</text>
 </g>
-  <g transform="translate(1353.38 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Shodi</text>
+  <g transform="translate(1362 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Shodi</text>
 </g>
-  <g transform="translate(1445.69 276.40)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Last-Call</text>
+  <g transform="translate(1455 277)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Last-Call</text>
 </g>
-  <g transform="translate(1168.75 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">FANam</text>
+  <g transform="translate(1176 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">FANam</text>
 </g>
-  <g transform="translate(1261.06 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Folden</text>
+  <g transform="translate(1269 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Folden</text>
 </g>
-  <g transform="translate(1353.38 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Kitten</text>
+  <g transform="translate(1362 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Kitten</text>
 </g>
-  <g transform="translate(1445.69 368.71)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Lani</text>
+  <g transform="translate(1455 370)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Lani</text>
 </g>
-  <g transform="translate(614.88 307.17)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Dino</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(618 308)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Dino</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(707.19 307.17)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">tana2020</text>
+  <g transform="translate(711 308)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">tana2020</text>
 </g>
-  <g transform="translate(799.50 307.17)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Sea-Monkey</text>
+  <g transform="translate(804 308)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="12" fill="#0d1b2e">Sea-Monkey</text>
 </g>
-  <g transform="translate(891.81 307.17)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">nwmilk</text>
+  <g transform="translate(897 308)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">nwmilk</text>
 </g>
-  <g transform="translate(614.88 399.48)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Hiss</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(618 401)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Hiss</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(891.81 399.48)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">EmsBar</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(897 401)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">EmsBar</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(614.88 491.79)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Lucy</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(618 494)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Lucy</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(891.81 491.79)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Moka</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(897 494)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Moka</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(614.88 584.10)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Ming</text>
+  <g transform="translate(618 587)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Ming</text>
 </g>
-  <g transform="translate(707.19 584.10)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">KingCap</text>
+  <g transform="translate(711 587)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">KingCap</text>
 </g>
-  <g transform="translate(799.50 584.10)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">DQ</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(804 587)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">DQ</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(891.81 584.10)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Nabi</text>
+  <g transform="translate(897 587)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Nabi</text>
 </g>
-  <g transform="translate(61.00 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">LittleMiss</text>
+  <g transform="translate(60 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">LittleMiss</text>
 </g>
-  <g transform="translate(153.31 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">내말이AR</text>
+  <g transform="translate(153 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">내말이AR</text>
 </g>
-  <g transform="translate(245.62 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Ootakoong</text>
+  <g transform="translate(246 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="13" fill="#0d1b2e">Ootakoong</text>
 </g>
-  <g transform="translate(337.94 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">WARM 햇살</text>
+  <g transform="translate(339 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">WARM 햇살</text>
 </g>
-  <g transform="translate(61.00 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Dragon ston</text>
+  <g transform="translate(60 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">Dragon</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">ston</text>
 </g>
-  <g transform="translate(153.31 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Doan Du</text>
+  <g transform="translate(153 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Doan Du</text>
 </g>
-  <g transform="translate(245.62 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">DalBong</text>
+  <g transform="translate(246 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">DalBong</text>
 </g>
-  <g transform="translate(337.94 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Jennifer</text>
+  <g transform="translate(339 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Jennifer</text>
 </g>
-  <g transform="translate(491.79 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">jin snow</text>
+  <g transform="translate(494 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">jin snow</text>
 </g>
-  <g transform="translate(491.79 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">깐 Dolkkan</text>
+  <g transform="translate(494 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">깐 Dolkkan</text>
 </g>
-  <g transform="translate(1014.90 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">LOTOS</text>
+  <g transform="translate(1021 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">LOTOS</text>
 </g>
-  <g transform="translate(1014.90 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Gumbo</text>
+  <g transform="translate(1021 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Gumbo</text>
 </g>
-  <g transform="translate(1168.75 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Escorbia</text>
+  <g transform="translate(1176 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Escorbia</text>
 </g>
-  <g transform="translate(1261.06 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Da Grimmm</text>
+  <g transform="translate(1269 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">Da</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">Grimmm</text>
 </g>
-  <g transform="translate(1353.38 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="10" fill="#1b2433">Corporal Corner</text>
+  <g transform="translate(1362 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">Corporal</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">Corner</text>
 </g>
-  <g transform="translate(1445.69 522.56)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Baby</text>
+  <g transform="translate(1455 525)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Baby</text>
 </g>
-  <g transform="translate(1168.75 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Hippy</text>
+  <g transform="translate(1176 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Hippy</text>
 </g>
-  <g transform="translate(1261.06 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Spurga</text>
+  <g transform="translate(1269 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Spurga</text>
 </g>
-  <g transform="translate(1353.38 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">HighFive</text>
+  <g transform="translate(1362 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">HighFive</text>
 </g>
-  <g transform="translate(1445.69 614.88)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Yannalee</text>
+  <g transform="translate(1455 618)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Yannalee</text>
 </g>
-  <g transform="translate(491.79 707.19)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Venom</text>
+  <g transform="translate(494 711)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Venom</text>
 </g>
-  <g transform="translate(584.10 707.19)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">nyobot - Cat</text>
+  <g transform="translate(587 711)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">nyobot</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">- Cat</text>
 </g>
-  <g transform="translate(676.42 707.19)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">DALMORE</text>
+  <g transform="translate(680 711)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">DALMORE</text>
 </g>
-  <g transform="translate(830.27 707.19)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">YoYo</text>
+  <g transform="translate(835 711)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">YoYo</text>
 </g>
-  <g transform="translate(922.58 707.19)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Bae</text>
+  <g transform="translate(928 711)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Bae</text>
 </g>
-  <g transform="translate(1014.90 707.19)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Oxy</text>
+  <g transform="translate(1021 711)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Oxy</text>
 </g>
-  <g transform="translate(184.08 737.96)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Sardine</text>
+  <g transform="translate(184 742)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Sardine</text>
 </g>
-  <g transform="translate(276.40 737.96)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Darktface</text>
+  <g transform="translate(277 742)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Darktface</text>
 </g>
-  <g transform="translate(368.71 737.96)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Green Zombie</text>
+  <g transform="translate(370 742)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="75" font-size="12" fill="#0d1b2e">Green</text><text x="46.5" y="87" font-size="12" fill="#0d1b2e">Zombie</text>
 </g>
-  <g transform="translate(184.08 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Maugarita</text>
+  <g transform="translate(184 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Maugarita</text>
 </g>
-  <g transform="translate(276.40 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Azak</text>
+  <g transform="translate(277 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Azak</text>
 </g>
-  <g transform="translate(368.71 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">TT떵이</text>
+  <g transform="translate(370 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">TT떵이</text>
 </g>
-  <g transform="translate(522.56 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Duffy</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(525 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Duffy</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(614.88 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Netty</text>
+  <g transform="translate(618 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Netty</text>
 </g>
-  <g transform="translate(707.19 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Gambler</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(711 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Gambler</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(799.50 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Bubbles</text>
-<circle cx="13" cy="13" r="10" fill="#e8a21c" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R5</text>
+  <g transform="translate(804 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Bubbles</text>
+<circle cx="14" cy="14" r="11" fill="#d98a00" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R5</text>
 </g>
-  <g transform="translate(891.81 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Sarah</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(897 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Sarah</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(984.12 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Zeg</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(990 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Zeg</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(1137.98 737.96)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Sunder</text>
+  <g transform="translate(1145 742)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Sunder</text>
 </g>
-  <g transform="translate(1230.29 737.96)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Am</text>
+  <g transform="translate(1238 742)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Am</text>
 </g>
-  <g transform="translate(1322.60 737.96)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Satan</text>
+  <g transform="translate(1331 742)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Satan</text>
 </g>
-  <g transform="translate(1137.98 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Melli</text>
+  <g transform="translate(1145 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Melli</text>
 </g>
-  <g transform="translate(1230.29 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Badger</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(1238 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Badger</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(1322.60 830.27)"><rect x="0.5" y="0.5" width="91.31" height="91.31" rx="4" fill="url(#tileFill)" stroke="#1f56c4"/><use href="#tower" x="0" y="0" width="92" height="70"/><rect x="2" y="70" width="88" height="20" rx="2" fill="#dbe7fb"/><text x="46.0" y="84.5" font-size="12" fill="#1b2433">Missy</text>
-<circle cx="13" cy="13" r="10" fill="#9a52e0" stroke="#fff" stroke-width="1.5"/><text x="13" y="16.5" font-size="9" font-weight="700" fill="#fff">R4</text>
+  <g transform="translate(1331 835)"><rect x="0.5" y="0.5" width="92" height="92" rx="4" fill="#3d7ee8" stroke="#1f56c4"/><use href="#tower" x="9" y="0" width="75" height="57"/><rect x="3" y="63" width="87" height="27" rx="3" fill="#ffffff"/>
+<text x="46.5" y="82" font-size="14" fill="#0d1b2e">Missy</text>
+<circle cx="14" cy="14" r="11" fill="#7b3fd0" stroke="#ffffff" stroke-width="2"/><text x="14" y="18" font-size="11" fill="#ffffff">R4</text>
 </g>
-  <g transform="translate(737.96 430.25)">
-    <rect x="0" y="0" width="124" height="124" rx="6" fill="url(#hqFill)" stroke="#e0a526" stroke-width="2.5"/>
+  <g transform="translate(742 432)">
+    <rect x="1" y="1" width="122" height="122" rx="6" fill="url(#hqFill)" stroke="#e0a526" stroke-width="2.5"/>
     <circle cx="62" cy="54" r="34" fill="#4f7a3a" stroke="#2e4a22" stroke-width="2"/>
     <rect x="30" y="20" width="64" height="16" rx="4" fill="#2b2f3a"/>
     <circle cx="49" cy="52" r="6" fill="#bfeaff"/><circle cx="75" cy="52" r="6" fill="#bfeaff"/>
     <path d="M44 72 h36" stroke="#2e4a22" stroke-width="3" stroke-linecap="round"/>
     <path d="M44 68 v8 M52 68 v8 M60 68 v8 M68 68 v8 M76 68 v8" stroke="#2e4a22" stroke-width="1.5"/>
     <rect x="22" y="48" width="8" height="10" rx="2" fill="#9aa0ad"/><rect x="94" y="48" width="8" height="10" rx="2" fill="#9aa0ad"/>
-    <text x="62" y="112" font-size="14" font-weight="700" fill="#5a3d00">Frankie</text>
+    <text x="62" y="113" font-size="16" fill="#4a3200">Frankie</text>
   </g>
 </g>
 </svg>
