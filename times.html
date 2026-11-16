@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>505 Player Time Schedule</title>
+<style>
+:root{
+  --bg:#f4f2ee;
+  --panel:#ffffff;
+  --ink:#1c1c1c;
+  --ink-dim:#55524c;
+  --ink-faint:#9a958b;
+  --line:#ddd8cf;
+  --line-soft:#ebe7e0;
+  --brass:#8a6d18;
+  --on-brass:#fffdf5;
+  --rule-bg:#fff3e0;
+  --rule-line:#c98a1c;
+  --zebra:#faf8f4;
+  --e1:#8a6d18;
+  --e2:#2f6f9f;
+  --free:#d9d3c7;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a;
+    --panel:#1c1f24;
+    --ink:#f0ede6;
+    --ink-dim:#b7b2a6;
+    --ink-faint:#6f6b63;
+    --line:#33363d;
+    --line-soft:#26292f;
+    --brass:#e0b84a;
+    --on-brass:#221a02;
+    --rule-bg:#2b220e;
+    --rule-line:#caa53f;
+    --zebra:#1f2329;
+    --e1:#e0b84a;
+    --e2:#6fb3e6;
+    --free:#3a3e46;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161a;
+  --panel:#1c1f24;
+  --ink:#f0ede6;
+  --ink-dim:#b7b2a6;
+  --ink-faint:#6f6b63;
+  --line:#33363d;
+  --line-soft:#26292f;
+  --brass:#e0b84a;
+  --on-brass:#221a02;
+  --rule-bg:#2b220e;
+  --rule-line:#caa53f;
+  --zebra:#1f2329;
+  --e1:#e0b84a;
+  --e2:#6fb3e6;
+  --free:#3a3e46;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  padding:clamp(20px,5vw,48px) clamp(14px,4vw,28px) 64px;
+}
+header{
+  margin-bottom:clamp(18px,4vw,26px);
+  padding-bottom:clamp(14px,3vw,18px);
+  border-bottom:2px solid var(--brass);
+}
+.eyebrow{
+  font-size:clamp(12px,2.6vw,13px);
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin-bottom:8px;
+}
+h1{
+  margin:0;
+  font-size:clamp(28px,7vw,38px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+p{margin:0 0 1.1em;font-size:clamp(15px,3.9vw,17px);color:var(--ink)}
+p.dim{color:var(--ink-dim);font-size:clamp(14px,3.5vw,15px)}
+h2{
+  font-size:clamp(21px,5.2vw,26px);
+  font-weight:800;
+  letter-spacing:-.01em;
+  margin:clamp(38px,7vw,52px) 0 10px;
+  padding-top:clamp(18px,4vw,24px);
+  border-top:2px solid var(--brass);
+}
+h2:first-of-type{margin-top:clamp(4px,1vw,8px);padding-top:0;border-top:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---- pair picker ---- */
+.picker{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  margin:0 0 14px;
+}
+.picker label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+select,button{
+  font:700 15px/1.2 ui-sans-serif,system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--panel);
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  padding:8px 10px;
+  font-variant-numeric:tabular-nums;
+}
+button{cursor:pointer}
+button:hover,select:hover{border-color:var(--brass)}
+button:focus-visible,select:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.badge{
+  font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 10px;border-radius:999px;border:1.5px solid var(--brass);color:var(--brass);
+}
+.badge.custom{border-color:var(--ink-faint);color:var(--ink-dim)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:0 0 1.2em}
+.card{
+  border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  padding:14px 16px;border-left:6px solid var(--line);
+}
+.card.e1{border-left-color:var(--e1)}
+.card.e2{border-left-color:var(--e2)}
+.card .label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+.card .big{font-size:clamp(28px,7vw,34px);font-weight:800;line-height:1.15;margin:4px 0;font-variant-numeric:tabular-nums}
+.card .sub{font-size:14px;color:var(--ink-dim);font-variant-numeric:tabular-nums}
+.card .sub b{color:var(--ink)}
+
+.box{
+  border-radius:12px;padding:clamp(14px,3.5vw,18px) clamp(16px,4vw,20px);
+  margin:0 0 1.4em;border:1px solid var(--rule-line);background:var(--rule-bg);
+}
+.box p{margin:0;font-weight:600}
+
+/* ---- charts ---- */
+.chart{
+  border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  padding:10px 8px 6px;margin:0 0 .6em;position:relative;
+}
+.chart svg{display:block;width:100%;height:auto}
+.chart text{font-family:ui-sans-serif,system-ui,sans-serif;fill:var(--ink-dim);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-dim);margin:0 0 8px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.tip{
+  position:absolute;pointer-events:none;z-index:5;
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,.18);padding:6px 9px;font-size:13px;line-height:1.4;white-space:nowrap;
+}
+.tip .dim{color:var(--ink-dim)}
+
+/* ---- tables ---- */
+.tablecard{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:auto;margin:0 0 1.4em}
+table{width:100%;border-collapse:collapse;font-size:clamp(13px,3.4vw,15px)}
+caption{
+  text-align:left;padding:12px 14px 4px;font-size:clamp(16px,4.2vw,18px);font-weight:800;color:var(--ink);
+}
+th,td{padding:8px 12px;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:top}
+th{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:last-child td{border-bottom:0}
+td.dim{color:var(--ink-dim)}
+.pairs tbody tr{cursor:pointer}
+.pairs tbody tr:hover td{color:var(--brass)}
+.pairs tr.on td{font-weight:800;color:var(--brass)}
+.rosters{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.rosters .tablecard{margin:0}
+.rosters caption .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
+
+footer{margin-top:3em;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="eyebrow">505 &middot; AoR &middot; Event Planning</div>
+  <h1>Player Time Schedule</h1>
+</header>
+
+<h2>Event times</h2>
+
+<div class="box"><p id="lede">Loading&hellip;</p></div>
+
+<div class="picker">
+  <label for="selA">Times (ST)</label>
+  <select id="selA" aria-label="Event 1 time"></select>
+  <span>+</span>
+  <select id="selB" aria-label="Event 2 time"></select>
+  <button id="best" type="button">Best pair</button>
+  <span id="badge" class="badge">Best pair</span>
+</div>
+
+<div class="cards">
+  <div class="card e1"><div class="label">Event 1</div><div class="big" id="tA">&mdash;</div><div class="sub" id="sA"></div></div>
+  <div class="card e2"><div class="label">Event 2</div><div class="big" id="tB">&mdash;</div><div class="sub" id="sB"></div></div>
+  <div class="card"><div class="label">Not free at either</div><div class="big" id="tN">&mdash;</div><div class="sub" id="sN"></div></div>
+</div>
+<p class="dim">The best pair is the two hours that cover the most APC 1 power. Each player goes to one event only. Players free at both are split so the two events have similar power. 00:00 ST is the daily reset, so it can't be picked.</p>
+
+<h2>Who is free each hour</h2>
+<p class="dim">Bars show the APC 1 power free each hour; the number on top is how many players. Tap a bar for details.</p>
+<div class="chart" id="hourly"></div>
+
+<h2>Event rosters</h2>
+<p class="dim">Local time is the event time on each player's own clock, worked out from their reset time.</p>
+<div class="rosters">
+  <div class="tablecard"><table><caption><span class="dot" style="background:var(--e1)"></span>Event 1 &middot; <span id="cA">&mdash;</span></caption>
+    <thead><tr><th>Player</th><th class="r">APC 1</th><th>Local</th></tr></thead><tbody id="rA"></tbody></table></div>
+  <div class="tablecard"><table><caption><span class="dot" style="background:var(--e2)"></span>Event 2 &middot; <span id="cB">&mdash;</span></caption>
+    <thead><tr><th>Player</th><th class="r">APC 1</th><th>Local</th></tr></thead><tbody id="rB"></tbody></table></div>
+</div>
+
+<h2>Not free at either time</h2>
+<p class="dim">These players listed other hours. Free hours are in server time.</p>
+<div class="tablecard"><table>
+  <thead><tr><th>Player</th><th class="r">APC 1</th><th>Free (ST)</th></tr></thead><tbody id="rN"></tbody></table></div>
+
+<h2>Everyone's hours</h2>
+<div class="legend">
+  <span><span class="sw" style="background:var(--e1)"></span>Event 1</span>
+  <span><span class="sw" style="background:var(--e2)"></span>Event 2</span>
+  <span><span class="sw" style="background:var(--free)"></span>Other hours free</span>
+</div>
+<p class="dim">One row per player, strongest first. Tap a row for details.</p>
+<div class="chart" id="grid"></div>
+
+<h2>Other good pairs</h2>
+<p class="dim">Top 10 pairs by APC 1 power covered. Tap one to use it.</p>
+<div class="tablecard"><table class="pairs">
+  <thead><tr><th class="r">#</th><th>Times (ST)</th><th class="r">Players</th><th class="r">APC 1</th><th class="r">Power</th></tr></thead><tbody id="rP"></tbody></table></div>
+
+<footer>From the alliance survey (weekday availability, Mon&ndash;Fri), November 2026. Power is APC 1 power; all times are server time (ST) unless marked local.</footer>
+</div>
+
+<script>
+(function(){
+  // [name, APC 1 power (M), faction, local offset from ST (h), free hours 00..23 as 0/1]
+  var PLAYERS = [["EmsBar",715,"Shooters",-4,"111110000001111111111111"],["dino",1330,"Shooters",11,"100000000011100000000001"],["Badger",2370,"Shooters",-4,"111110000011000000001111"],["MELLI",1500,"Fighters",-4,"111111000011110000000000"],["Malik",900,"Fighters",5,"111111111110000000000000"],["LOTOS",667,"Fighters",6,"000000000011111111110000"],["maomao",1110,"Fighters",10,"100000100001110000000000"],["Spurga01",617,"Shooters",4,"000000000001111111111000"],["Bae",1400,"Fighters",10,"000000000011110000000000"],["LRPete",1280,"Fighters",9,"111000000011111100000000"],["Goku",1230,"Fighters",-2,"110000000000000000100001"],["TT떵이",2500,"Shooters",11,"000000011110000000000000"],["Ootakoong",452.2,"Fighters",-6,"001111100000000001110000"],["Abao4488",1000,"Fighters",10,"000000000001100000000000"],["TheFunkySatan",894,"Shooters",7.5,"000000000001111000000000"],["luucy",1300,"Shooters",11,"111000000011100000000000"],["Rosie",748.5,"Shooters",4,"000000000111111111110000"],["alaa h r z",870,"Fighters",6,"000000000011111111111000"],["2eSToO",684,"Fighters",4,"000000000000011111110000"],["킹받MING",2430,"Shooters",-4,"000000000010000000000000"],["aRtHuR fLeCk",916.3,"Fighters",3,"000011111111111111111100"],["Oxy",1250,"Fighters",2,"000000011111111111111000"],["Nabi 娜比",1170,"Fighters",10,"100000000000000000000001"],["Hathai",800,"Fighters",-3,"111000000011111111111111"],["Chino ax",261.8,"Fighters",-5,"000000000000011111111111"],["Kitten Moka",680,"Fighters",3,"000001100000000011111100"],["Am369",1050,"Fighters",3,"000000000001100111010000"],["Mokamimo",2430,"Fighters",3,"000001100000000011111100"],["Grimhowl",540,"Fighters",5,"000000000000000111000000"],["FiRaR",930,"Shooters",5,"000000000011111111110000"],["Gambler",1100,"Shooters",9,"100000111011000000001111"],["Yannalee",1010,"Fighters",-6,"111111000000111000100001"],["Nesus",802,"Fighters",5,"011111011111111111110000"],["Kizer J Max",661,"",-2,"111000000000001000000011"],["Miss Thevain",1380,"Shooters",-4,"100010001001110010001001"],["어리둥절물범",518.3,"Fighters",11,"000000000001100000000000"],["Cats EYE",829.6,"Fighters",10,"000000000001110000000000"],["ZEGWolf",6130,"Fighters",-4,"111000000001111111111111"],["LAni",502,"Shooters",-3,"000000001000000000011111"],["SUNDER",438,"Riders",-1,"100000000000000000010011"],["WARM 햇살",823.9,"Fighters",11,"000000000011110000000000"],["Bubbles•T 泡泡",9630,"Fighters",9,"111111111111100000000111"],["Hippy",776,"Fighters",-3,"000000000001111111111111"],["Sea-Monkey",1710,"Shooters",11,"100000000001111000000000"],["N a N a",660.7,"Fighters",9,"111111000001100000000011"],["Zoleen",470,"Fighters",9,"111000000111000000000011"],["Silent P",840,"Fighters",9,"111100000011100000000001"],["Green Zombie",1720,"Shooters",11,"000000001111100000000000"],["Jennifer",645,"Fighters",11,"000000000011000000000000"],["FANấm",1120,"Riders",9,"111111111111111000000001"],["Marmara",575.3,"Fighters",4,"000000001111111111110000"],["tana2020",1720,"Fighters",11,"000000001111100000000000"],["Folden",1100,"Fighters",4,"000000000000111111111000"],["MAZAR2026",1090,"Fighters",-3,"000000000011110010111111"],["Maugarita",2260,"Shooters",11,"000000000011110000000000"],["Darktrace",883.7,"Shooters",11,"000000000111100000000000"],["SARDINE",1980,"Fighters",11,"000000000111100000000000"],["눈꽃송이 Snöw",845.4,"Shooters",11,"000000000000000000000111"],["지니쓰 Däsöm",983.3,"Fighters",11,"000000000001000000000000"],["nyobot - Cat",884.2,"Shooters",-6,"111110000000000000111111"],["DQ",4200,"Shooters",9,"100100100111110000111000"],["x-x",671.7,"Fighters",-3,"111100000000010010000011"],["Kence0550",617.8,"Fighters",10,"000000000000111100011111"],["時間到了",2100,"Fighters",10,"000000000110000000000000"],["내말이AR",550,"Shooters",-4,"001000000000000000000000"],["하나둘셋123",1200,"Fighters",11,"000000001111111000111100"],["pompom푸린",558,"Fighters",-3,"000000000000000000100000"],["DUFFYY",7200,"Shooters",9,"000000000011110000000000"],["Sarah",1400,"Shooters",-1,"111100000111111111111111"],["Dragon ston",632,"Fighters",11,"000000000001000000000000"],["Yazi",1530,"Shooters",-1,"100000000000000000000000"],["Hisss",2300,"Fighters",11,"000000000011110000000000"],["깐 Dolkkan",763,"Fighters",11,"000000000010000001100000"],["Gumbo",1530,"Fighters",-4,"111000000000000000000011"],["Sonic MX",660,"Shooters",-2,"100000000000000000011111"],["Shodi",1100,"Shooters",6,"000000000011111111000000"],["RENATA",1050,"Fighters",-1,"100000000011111111000000"],["SuperTramp",1270,"Riders",3,"000000110011100011011100"],["구연산중독자",850,"Shooters",11,"000000000010000000000000"],["jin snow",1320,"Fighters",11,"000000000111110000000000"],["nwmilk",1300,"Shooters",10,"000000000011111111110000"],["Last-Call",985,"Fighters",10,"000000000011110000000000"]];
+  var RESET = 0;
+  var H = []; for (var h = 0; h < 24; h++) H.push(h);
+  var SVGNS = 'http://www.w3.org/2000/svg';
+
+  var players = PLAYERS.map(function(p){
+    return {name:p[0], apc1:p[1], faction:p[2], offset:p[3], free:p[4].split('').map(function(c){return c==='1';})};
+  }).sort(function(a,b){return b.apc1-a.apc1;});
+  var TOTAL = players.reduce(function(s,p){return s+p.apc1;},0);
+
+  function pad(n){return (n<10?'0':'')+n;}
+  function lab(h){return pad(h)+':00';}
+  function G(m){return (m/1000).toFixed(1)+'G';}
+  function M(m){return m>=1000 ? (m/1000).toFixed(2).replace(/0$/,'')+'G' : Math.round(m)+'M';}
+  function localTime(h,off){
+    if (off===null || off===undefined || isNaN(off)) return '';
+    var t = ((h+off)%24+24)%24, hh = Math.floor(t), mm = Math.round((t-hh)*60);
+    return pad(hh)+':'+pad(mm);
+  }
+  function el(tag, attrs, text){
+    var e = document.createElement(tag);
+    if (attrs) for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function svgEl(tag, attrs){
+    var e = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  // ---- every pair, ranked by APC 1 power covered ----
+  var pairs = [];
+  for (var a = 0; a < 24; a++) for (var b = a+1; b < 24; b++) {
+    if (a === RESET || b === RESET) continue;
+    var n = 0, pw = 0;
+    players.forEach(function(p){ if (p.free[a] || p.free[b]) { n++; pw += p.apc1; } });
+    pairs.push({a:a, b:b, players:n, power:pw});
+  }
+  pairs.sort(function(x,y){return y.power-x.power || y.players-x.players;});
+  pairs.forEach(function(p,i){p.rank=i+1;});
+  var BEST = pairs[0];
+  function findPair(a,b){ var lo=Math.min(a,b), hi=Math.max(a,b); for (var i=0;i<pairs.length;i++) if (pairs[i].a===lo && pairs[i].b===hi) return pairs[i]; return null; }
+
+  // ---- split players into the two events ----
+  function assign(pair){
+    var e1=[], e2=[], none=[], flex=[], s1=0, s2=0;
+    players.forEach(function(p){
+      var ca = p.free[pair.a], cb = p.free[pair.b];
+      if (ca && cb) flex.push(p);
+      else if (ca) { e1.push(p); s1 += p.apc1; }
+      else if (cb) { e2.push(p); s2 += p.apc1; }
+      else none.push(p);
+    });
+    flex.forEach(function(p){ if (s1 <= s2) { e1.push(p); s1 += p.apc1; } else { e2.push(p); s2 += p.apc1; } });
+    var byPower = function(x,y){return y.apc1-x.apc1;};
+    e1.sort(byPower); e2.sort(byPower);
+    var group = {};
+    e1.forEach(function(p){group[p.name]=1;}); e2.forEach(function(p){group[p.name]=2;});
+    return {e1:e1, e2:e2, none:none, s1:s1, s2:s2, group:group};
+  }
+
+  // ---- selects ----
+  var selA = document.getElementById('selA'), selB = document.getElementById('selB');
+  H.forEach(function(h){ if (h===RESET) return; selA.appendChild(el('option',{value:h},lab(h))); selB.appendChild(el('option',{value:h},lab(h))); });
+
+  var current = BEST;
+  function fromHash(){
+    var m = /^#(\d{1,2})-(\d{1,2})$/.exec(location.hash);
+    if (!m) return BEST;
+    var p = findPair(+m[1], +m[2]);
+    return p || BEST;
+  }
+  function setPair(p, push){
+    current = p;
+    if (push) {
+      var hash = p === BEST ? '' : '#'+p.a+'-'+p.b;
+      history.replaceState(null, '', location.pathname + location.search + hash);
+    }
+    render();
+  }
+  function onSelect(){
+    var a = +selA.value, b = +selB.value;
+    if (a === b) return;
+    var p = findPair(a,b); if (p) setPair(p, true);
+  }
+  selA.addEventListener('change', onSelect);
+  selB.addEventListener('change', onSelect);
+  document.getElementById('best').addEventListener('click', function(){ setPair(BEST, true); });
+  window.addEventListener('hashchange', function(){ setPair(fromHash(), false); });
+
+  // ---- tooltip helper ----
+  function attachTip(box){
+    var tip = el('div',{class:'tip'}); tip.hidden = true; box.appendChild(tip);
+    return {
+      show:function(evt, lines){
+        tip.replaceChildren();
+        lines.forEach(function(l,i){ tip.appendChild(el('div', i ? {class:'dim'} : null, l)); });
+        tip.hidden = false;
+        var r = box.getBoundingClientRect();
+        var x = evt.clientX - r.left + 12, y = evt.clientY - r.top + 12;
+        if (x + tip.offsetWidth > box.clientWidth) x = Math.max(4, evt.clientX - r.left - tip.offsetWidth - 12);
+        if (y + tip.offsetHeight > box.clientHeight) y = Math.max(4, evt.clientY - r.top - tip.offsetHeight - 12);
+        tip.style.left = x+'px'; tip.style.top = y+'px';
+      },
+      hide:function(){ tip.hidden = true; }
+    };
+  }
+
+  // Hour labels: every hour when there's room, else every third, always the two picked hours, and none crowding them.
+  function showTick(h, sparse){
+    if (h === current.a || h === current.b) return true;
+    if (!sparse) return true;
+    if (Math.abs(h - current.a) < 2 || Math.abs(h - current.b) < 2) return false;
+    return h % 3 === 0;
+  }
+
+  // ---- hourly bars ----
+  function drawHourly(){
+    var box = document.getElementById('hourly'); box.replaceChildren();
+    var W = Math.max(300, box.clientWidth - 16), Hh = 220, L = 36, R = 4, T = 18, B = 22;
+    var data = H.map(function(h){ var n=0, pw=0; players.forEach(function(p){ if (p.free[h]) { n++; pw += p.apc1; } }); return {h:h, n:n, pw:pw}; });
+    var max = Math.max.apply(null, data.map(function(d){return d.pw;}));
+    var top = Math.ceil(max/20000)*20000;
+    var svg = svgEl('svg',{viewBox:'0 0 '+W+' '+Hh, role:'img', 'aria-label':'APC 1 power and number of players free for each server-time hour'});
+    var plotH = Hh - T - B, step = (W - L - R)/24, bw = step*0.78;
+    var y = function(v){ return T + plotH - v/top*plotH; };
+    for (var g = 0; g <= top; g += 20000) {
+      svg.appendChild(svgEl('line',{x1:L, x2:W-R, y1:y(g), y2:y(g), stroke:'var(--line-soft)'}));
+      var t = svgEl('text',{x:L-6, y:y(g)+4, 'text-anchor':'end'}); t.textContent = (g/1000)+'G'; svg.appendChild(t);
+    }
+    var tip = attachTip(box);
+    data.forEach(function(d){
+      var x = L + d.h*step + (step-bw)/2;
+      var picked = d.h === current.a || d.h === current.b;
+      var fill = d.h === current.a ? 'var(--e1)' : d.h === current.b ? 'var(--e2)' : 'var(--free)';
+      svg.appendChild(svgEl('rect',{x:x, y:y(d.pw), width:bw, height:Math.max(0, y(0)-y(d.pw)), rx:2, fill:fill, opacity: d.h===RESET ? .4 : 1}));
+      if (bw >= 14 || picked) {
+        var n = svgEl('text',{x:x+bw/2, y:y(d.pw)-4, 'text-anchor':'middle', style: picked ? 'fill:var(--ink);font-weight:800' : ''}); n.textContent = d.n; svg.appendChild(n);
+      }
+      if (showTick(d.h, step < 18)) {
+        var xl = svgEl('text',{x:x+bw/2, y:Hh-6, 'text-anchor':'middle', style: picked ? 'fill:var(--ink);font-weight:800' : ''}); xl.textContent = pad(d.h); svg.appendChild(xl);
+      }
+      var hit = svgEl('rect',{x:L + d.h*step, y:0, width:step, height:Hh-B, fill:'transparent'});
+      var show = function(evt){ tip.show(evt, [lab(d.h)+' ST'+(d.h===RESET?' (reset)':''), d.n+' players free', G(d.pw)+' APC 1']); };
+      hit.addEventListener('pointermove', show); hit.addEventListener('pointerdown', show);
+      hit.addEventListener('pointerleave', tip.hide);
+      svg.appendChild(hit);
+    });
+    box.insertBefore(svg, box.firstChild);
+  }
+
+  // ---- everyone's hours grid ----
+  function drawGrid(split){
+    var box = document.getElementById('grid'); box.replaceChildren();
+    var W = Math.max(300, box.clientWidth - 16), rh = 16, top = 18;
+    var narrow = W < 460, nameW = narrow ? 92 : 130;
+    var Hh = top + players.length*rh + 2;
+    var svg = svgEl('svg',{viewBox:'0 0 '+W+' '+Hh, role:'img', 'aria-label':'Each player by the server-time hours they are free, with their event highlighted'});
+    var step = (W - nameW - 2)/24, cw = step*0.86;
+    H.forEach(function(h){
+      if (!showTick(h, step < 15)) return;
+      var t = svgEl('text',{x:nameW + h*step + step/2, y:12, 'text-anchor':'middle', style:(h===current.a||h===current.b)?'fill:var(--ink);font-weight:800':''});
+      t.textContent = pad(h); svg.appendChild(t);
+    });
+    [current.a, current.b].forEach(function(h,i){
+      svg.appendChild(svgEl('rect',{x:nameW + h*step - 1, y:top-2, width:cw+2 + (step-cw)/2, height:players.length*rh+3, rx:3, fill:'none', stroke: i ? 'var(--e2)' : 'var(--e1)', 'stroke-width':1.5}));
+    });
+    var tip = attachTip(box);
+    players.forEach(function(p,i){
+      var yy = top + i*rh;
+      var nm = svgEl('text',{x:0, y:yy+12, style:'fill:var(--ink)'});
+      var maxChars = narrow ? 11 : 17;
+      nm.textContent = p.name.length > maxChars ? p.name.slice(0, maxChars-1)+'…' : p.name;
+      svg.appendChild(nm);
+      var g = split.group[p.name];
+      H.forEach(function(h){
+        if (!p.free[h]) return;
+        var mine = (g===1 && h===current.a) || (g===2 && h===current.b);
+        svg.appendChild(svgEl('rect',{x:nameW + h*step + (step-cw)/2, y:yy+2, width:cw, height:rh-4, rx:2, fill: mine ? (g===1?'var(--e1)':'var(--e2)') : 'var(--free)'}));
+      });
+      var hit = svgEl('rect',{x:0, y:yy, width:W, height:rh, fill:'transparent'});
+      var hours = H.filter(function(h){return p.free[h];}).map(pad).join(' ');
+      var where = g===1 ? 'Event 1 ('+lab(current.a)+' ST, '+localTime(current.a,p.offset)+' local)' : g===2 ? 'Event 2 ('+lab(current.b)+' ST, '+localTime(current.b,p.offset)+' local)' : 'Not free at either time';
+      var show = function(evt){ tip.show(evt, [p.name, M(p.apc1)+' APC 1'+(p.faction?' · '+p.faction:''), where, 'Free (ST): '+(hours||'none')]); };
+      hit.addEventListener('pointermove', show); hit.addEventListener('pointerdown', show);
+      hit.addEventListener('pointerleave', tip.hide);
+      svg.appendChild(hit);
+    });
+    box.insertBefore(svg, box.firstChild);
+  }
+
+  function fillRoster(id, list, hour){
+    var tb = document.getElementById(id); tb.replaceChildren();
+    list.forEach(function(p){
+      var tr = el('tr');
+      tr.appendChild(el('td',null,p.name));
+      tr.appendChild(el('td',{class:'r'},M(p.apc1)));
+      tr.appendChild(el('td',{class:'dim num'}, hour===null ? H.filter(function(h){return p.free[h];}).map(pad).join(' ') : localTime(hour,p.offset)));
+      tb.appendChild(tr);
+    });
+  }
+
+  function render(){
+    var p = current, s = assign(p);
+    selA.value = p.a; selB.value = p.b;
+    var badge = document.getElementById('badge');
+    badge.textContent = p === BEST ? 'Best pair' : 'Rank '+p.rank+' of '+pairs.length;
+    badge.className = p === BEST ? 'badge' : 'badge custom';
+    document.getElementById('lede').textContent =
+      'Running events at '+lab(p.a)+' and '+lab(p.b)+' ST covers '+p.players+' of '+players.length+
+      ' players and '+Math.round(p.power/TOTAL*100)+'% of the alliance\'s APC 1 power.';
+    document.getElementById('tA').textContent = lab(p.a)+' ST';
+    document.getElementById('tB').textContent = lab(p.b)+' ST';
+    document.getElementById('cA').textContent = lab(p.a)+' ST';
+    document.getElementById('cB').textContent = lab(p.b)+' ST';
+    document.getElementById('sA').replaceChildren(el('b',null,String(s.e1.length)), document.createTextNode(' players · '), el('b',null,G(s.s1)), document.createTextNode(' APC 1'));
+    document.getElementById('sB').replaceChildren(el('b',null,String(s.e2.length)), document.createTextNode(' players · '), el('b',null,G(s.s2)), document.createTextNode(' APC 1'));
+    document.getElementById('tN').textContent = s.none.length;
+    document.getElementById('sN').replaceChildren(el('b',null,G(TOTAL - p.power)), document.createTextNode(' APC 1 missed'));
+    fillRoster('rA', s.e1, p.a);
+    fillRoster('rB', s.e2, p.b);
+    fillRoster('rN', s.none, null);
+
+    var tb = document.getElementById('rP'); tb.replaceChildren();
+    var list = pairs.slice(0,10); if (list.indexOf(p) < 0) list.push(p);
+    list.forEach(function(q){
+      var tr = el('tr'); if (q === p) tr.className = 'on';
+      tr.appendChild(el('td',{class:'r'},String(q.rank)));
+      tr.appendChild(el('td',{class:'num'},lab(q.a)+' + '+lab(q.b)));
+      tr.appendChild(el('td',{class:'r'},String(q.players)));
+      tr.appendChild(el('td',{class:'r'},G(q.power)));
+      tr.appendChild(el('td',{class:'r'},Math.round(q.power/TOTAL*100)+'%'));
+      tr.addEventListener('click', function(){ setPair(q, true); window.scrollTo({top:0, behavior:'smooth'}); });
+      tb.appendChild(tr);
+    });
+    drawHourly();
+    drawGrid(s);
+  }
+
+  var resizeTimer;
+  window.addEventListener('resize', function(){ clearTimeout(resizeTimer); resizeTimer = setTimeout(render, 150); });
+  current = fromHash();
+  render();
+})();
+</script>
+</body>
+</html>
